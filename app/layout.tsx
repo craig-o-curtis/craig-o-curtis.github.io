@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { NAME, TITLE } from "./identity";
-import "./globals.css";
+import "./styles/globals.css";
 
 export const metadata: Metadata = {
   title: `${NAME} — ${TITLE}`,

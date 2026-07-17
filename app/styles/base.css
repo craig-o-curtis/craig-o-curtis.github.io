@@ -1,0 +1,39 @@
+/* Base element styling. Bare tags only — no classes, no components. */
+
+body {
+  padding: 0 1.5rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  /* --control, not --rule: SC 1.4.11 wants 3:1 on interactive boundaries. */
+  border-bottom: 1px solid var(--control);
+  transition: border-color 0.15s ease;
+}
+
+a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* SC 2.4.7 / 2.4.13: a visible, unambiguous focus indicator. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}

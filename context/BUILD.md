@@ -34,7 +34,7 @@ This is a companion to the GitHub profile README at `craig-o-curtis/craig-o-curt
 
 Verified with axe-core (AAA ruleset) in light and dark: **0 violations, 37 nodes passing `color-contrast-enhanced`**.
 
-Colour tokens live in `app/globals.css` and are chosen against the 7:1 AAA threshold. Measured:
+Colour tokens live in `app/styles/theme.css` and are chosen against the 7:1 AAA threshold. Measured:
 
 | token | light | dark | needs |
 |---|---|---|---|
@@ -50,6 +50,24 @@ Rules that are easy to break:
 3. Keep the skip link (SC 2.4.1), `:focus-visible` outline (SC 2.4.7/2.4.13), and the `prefers-reduced-motion` block.
 
 Re-run the audit after any visual change (see "Verifying").
+
+### Styles
+
+Global CSS lives in **`app/styles/`**, imported once by `app/layout.tsx` as `./styles/globals.css`. Each file has one job:
+
+| file | holds | rule of thumb |
+|---|---|---|
+| `theme.css` | `:root` design tokens, light + dark | no selectors other than `:root` |
+| `reset.css` | browser normalisation | no design decisions |
+| `base.css` | bare element styling (`body`, `a`, `h1`–`h3`, `:focus-visible`) | tags only, no classes |
+| `utilities.css` | global classes (`.sr-only`, `.skip-link`) | applied by name from markup |
+| `globals.css` | `@import`s the four above | **imports only, never rules** |
+
+**Import order is load-bearing**: `theme` first (everything consumes its variables), `utilities` last (so it can override `base`).
+
+`body` is split on purpose: `margin: 0` is normalisation and lives in `reset.css`; padding, colour and font are design and live in `base.css`.
+
+Component styles stay in CSS Modules next to their component — nothing component-specific belongs in `app/styles/`.
 
 ### Components
 
@@ -69,7 +87,7 @@ Card links are **title-only**, not whole-card — one clear tab stop per item, n
 - **Next.js (App Router)**, static export
 - **React**
 - **`@next/mdx`** — content pages as MDX so new pages don't need hand-written markup
-- **CSS Modules or a single global stylesheet** — no Tailwind, no CSS-in-JS
+- **CSS Modules for components; global styles split under `app/styles/`** — no Tailwind, no CSS-in-JS
 - **TypeScript**
 - **pnpm** (Craig's package manager; matches the Burglekitt monorepo setup)
 

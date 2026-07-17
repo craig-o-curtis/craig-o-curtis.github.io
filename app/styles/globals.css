@@ -1,0 +1,13 @@
+/*
+ * Global stylesheet entry point. Imports only — no rules of its own.
+ *
+ * Order matters:
+ *   theme     design tokens; everything below consumes these variables
+ *   reset     browser normalisation
+ *   base      bare element styling
+ *   utilities global classes, last so they can override base
+ */
+@import "./theme.css";
+@import "./reset.css";
+@import "./base.css";
+@import "./utilities.css";
