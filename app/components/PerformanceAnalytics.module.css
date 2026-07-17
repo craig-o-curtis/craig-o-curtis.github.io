@@ -71,76 +71,6 @@
   text-align: center;
 }
 
-.ring,
-.largeRing {
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-
-.ring {
-  width: 4.25rem;
-  height: 4.25rem;
-}
-
-.largeRing {
-  width: min(11.5rem, 58vw);
-  height: min(11.5rem, 58vw);
-  margin-top: 1.4rem;
-}
-
-.ring svg,
-.largeRing svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-
-.track,
-.progress {
-  fill: none;
-  stroke-width: 8;
-}
-
-.track {
-  stroke: color-mix(in srgb, var(--score-green) 18%, transparent);
-}
-
-.progress {
-  stroke: var(--score-green);
-  stroke-linecap: round;
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  animation: drawScore 1.25s ease-out forwards, scoreColor 1.25s linear forwards;
-}
-
-.largeRing .track,
-.largeRing .progress {
-  stroke-width: 6;
-}
-
-.largeRing .track {
-  fill: color-mix(in srgb, var(--score-green) 13%, transparent);
-}
-
-.value,
-.largeValue {
-  position: absolute;
-  color: var(--score-green);
-  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono",
-    monospace;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.value {
-  font-size: 1.45rem;
-}
-
-.largeValue {
-  font-size: clamp(2.4rem, 10vw, 3.5rem);
-}
-
 .label,
 .featuredLabel {
   color: var(--fg);
@@ -168,13 +98,21 @@
   gap: 0.45rem;
   margin: 0.95rem 0 0.55rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--score-green) 14%, transparent);
-  color: var(--score-green);
+  /*
+   * Pinned dark rather than a transparent tint over --card-hover: the tint
+   * followed the theme, so no single green cleared contrast in both.
+   *
+   * The text is a slightly brighter green than the rings' --score-green, which
+   * only reaches 6.5:1 here. At this size AAA needs 7:1; #1fe07f gives 7.53:1
+   * and is near-indistinguishable from Lighthouse's green.
+   */
+  background: var(--score-green-dark);
+  color: #1fe07f;
   font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono",
     monospace;
   font-size: 1.08rem;
   font-weight: 700;
-  animation: pulsePill 1.25s ease-out both;
+  /* Already 2/2 — no count-up to wait for, so it just stays green. */
 }
 
 .agenticDot {
@@ -188,6 +126,13 @@
   position: relative;
   z-index: 1;
   padding-top: 1rem;
+}
+
+/* Positioning context the Confetti burst anchors its centre to. */
+.ringWrap {
+  position: relative;
+  display: grid;
+  place-items: center;
 }
 
 .metrics {
@@ -211,7 +156,8 @@
 
 .metricsTitle {
   margin: 0;
-  color: #a9a9a9;
+  /* #a9a9a9 measured 6.93:1 on --lighthouse-panel — just under AAA's 7:1. */
+  color: #b8b8b8;
   font-size: 0.95rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -261,112 +207,6 @@
   line-height: 1;
   white-space: nowrap;
 }
-
-.metric {
-  position: absolute;
-  color: var(--fg);
-  font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono",
-    monospace;
-  font-size: clamp(0.82rem, 3.3vw, 1.05rem);
-  font-weight: 700;
-}
-
-.metricSI {
-  top: -0.7rem;
-  left: 25%;
-}
-
-.metricFCP {
-  top: -0.7rem;
-  right: 18%;
-}
-
-.metricLCP {
-  top: 39%;
-  right: -1.35rem;
-}
-
-.metricTBT {
-  bottom: -0.7rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.metricCLS {
-  top: 39%;
-  left: -1.55rem;
-}
-
-.confetti {
-  position: absolute;
-  left: var(--confetti-left);
-  top: var(--confetti-top);
-  width: var(--confetti-size);
-  height: var(--confetti-size);
-  border-radius: 999px;
-  background: var(--confetti-color);
-  opacity: 0;
-  box-shadow: 0 0 1rem var(--confetti-color);
-  animation: confettiPop 2.1s ease-out var(--confetti-delay) both;
-}
-
-@keyframes drawScore {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes scoreColor {
-  0% {
-    stroke: var(--score-grey);
-  }
-  22% {
-    stroke: var(--score-red);
-  }
-  48% {
-    stroke: var(--score-orange);
-  }
-  72% {
-    stroke: var(--score-yellow);
-  }
-  100% {
-    stroke: var(--score-green);
-  }
-}
-
-@keyframes confettiPop {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 0, 0) scale(0.25);
-  }
-  18% {
-    opacity: 0.95;
-    transform: translate3d(0.2rem, -0.6rem, 0) scale(1);
-  }
-  58% {
-    opacity: 0.75;
-    transform: translate3d(-0.25rem, 0.7rem, 0) scale(0.85);
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(0.35rem, 1.6rem, 0) scale(0.35);
-  }
-}
-
-@keyframes pulsePill {
-  0% {
-    color: var(--score-grey);
-    transform: scale(0.96);
-  }
-  50% {
-    color: var(--score-yellow);
-  }
-  100% {
-    color: var(--score-green);
-    transform: scale(1);
-  }
-}
-
 @keyframes reveal {
   from {
     height: 0;
@@ -404,11 +244,6 @@
     padding-inline: 0.75rem;
   }
 
-  .ring {
-    width: 4.7rem;
-    height: 4.7rem;
-  }
-
   .metrics {
     padding: 1rem;
   }
@@ -425,19 +260,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .content[data-state],
-  .progress,
-  .confetti,
-  .agenticPill {
+  .content[data-state] {
     animation: none;
-  }
-
-  .progress {
-    stroke-dashoffset: 0;
-    stroke: var(--score-green);
-  }
-
-  .confetti {
-    display: none;
   }
 }

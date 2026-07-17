@@ -34,7 +34,12 @@ export default function Home() {
         </div>
 
         <div className={styles.cta}>
-          <ActionButton variant="link" href={CV_PATH} fileInfo={CV_FILE_INFO}>
+          <ActionButton
+            variant="link"
+            href={CV_PATH}
+            fileInfo={CV_FILE_INFO}
+            newTab
+          >
             View CV
           </ActionButton>
           <ActionButton

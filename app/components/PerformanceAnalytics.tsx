@@ -1,7 +1,8 @@
 "use client"
 
-import type { CSSProperties } from "react"
 import { useEffect, useState } from "react"
+import { Confetti } from "@/app/components/Confetti"
+import { ScoreRing } from "@/app/components/ScoreRing"
 import {
   Collapsible,
   CollapsibleContent,
@@ -16,8 +17,6 @@ const categoryScores = [
   { label: "SEO", value: 100 },
 ]
 
-const metricLabels = ["SI", "FCP", "LCP", "TBT", "CLS"]
-
 const metrics = [
   { label: "First Contentful Paint", value: "0.2 s" },
   { label: "Largest Contentful Paint", value: "0.2 s" },
@@ -26,21 +25,12 @@ const metrics = [
   { label: "Speed Index", value: "0.2 s" },
 ]
 
-const confetti = Array.from({ length: 144 }, (_, index) => ({
-  id: index,
-  left: `${3 + ((index * 29) % 94)}%`,
-  top: `${3 + ((index * 41) % 92)}%`,
-  delay: `${1.25 + (index % 36) * 0.035}s`,
-  size: `${0.22 + (index % 5) * 0.08}rem`,
-  color: [
-    "var(--score-green)",
-    "var(--score-cyan)",
-    "var(--score-violet)",
-    "var(--score-yellow)",
-    "var(--score-orange)",
-    "var(--score-red)",
-  ][index % 6],
-}))
+/**
+ * Metric labels around the big ring, clockwise. Offset by half a step so the
+ * gap between SI and FCP straddles 12 o'clock rather than sitting on it.
+ */
+const RING_LABELS = ["SI", "FCP", "LCP", "TBT", "CLS"]
+const RING_LABEL_OFFSET = -36
 
 function CountUp({ active, value }: { active: boolean; value: number }) {
   const [current, setCurrent] = useState(active ? 0 : value)
@@ -79,43 +69,43 @@ function CountUp({ active, value }: { active: boolean; value: number }) {
   return current
 }
 
-function ScoreRing({
+/** A labelled score ring that fires its own confetti burst when revealed. */
+function Score({
   label,
   value,
   active,
+  index = 0,
   large = false,
 }: {
   label: string
   value: number
   active: boolean
+  /** Varies this burst's angles so sibling bursts don't look cloned. */
+  index?: number
   large?: boolean
 }) {
   return (
     <div className={large ? styles.featuredScore : styles.score}>
-      <div className={large ? styles.largeRing : styles.ring}>
-        <svg viewBox="0 0 120 120" aria-hidden="true">
-          <circle className={styles.track} cx="60" cy="60" r="48" />
-          <circle
-            className={styles.progress}
-            cx="60"
-            cy="60"
-            r="48"
-            pathLength="100"
+      <div className={styles.ringWrap}>
+        <ScoreRing
+          value={<CountUp active={active} value={value} />}
+          score={value}
+          labels={large ? RING_LABELS : []}
+          labelOffset={RING_LABEL_OFFSET}
+          labelRoom={large ? "1.75rem" : "0rem"}
+          size={large ? "11rem" : "4rem"}
+          stroke={large ? 5 : 7}
+          valueSize={large ? "3rem" : "1.1rem"}
+          animate={active}
+        />
+        {active ? (
+          <Confetti
+            count={large ? 44 : 20}
+            spread={large ? 9 : 4.5}
+            seed={index * 1.1}
+            delay={large ? 0.9 : 0.75}
           />
-        </svg>
-        <span className={large ? styles.largeValue : styles.value}>
-          <CountUp active={active} value={value} />
-        </span>
-        {large
-          ? metricLabels.map((metric) => (
-              <span
-                className={`${styles.metric} ${styles[`metric${metric}`]}`}
-                key={metric}
-              >
-                {metric}
-              </span>
-            ))
-          : null}
+        ) : null}
       </div>
       <span className={large ? styles.featuredLabel : styles.label}>
         {label}
@@ -139,25 +129,17 @@ export function PerformanceAnalytics() {
       </CollapsibleTrigger>
       <CollapsibleContent className={styles.content}>
         <div className={styles.panel} aria-label="Lighthouse scores">
-          {confetti.map((dot) => (
-            <span
-              aria-hidden="true"
-              className={styles.confetti}
-              key={dot.id}
-              style={{
-                "--confetti-left": dot.left,
-                "--confetti-top": dot.top,
-                "--confetti-delay": dot.delay,
-                "--confetti-size": dot.size,
-                "--confetti-color": dot.color,
-              } as CSSProperties}
-            />
-          ))}
           <div className={styles.categories}>
-            {categoryScores.map((score) => (
-              <ScoreRing key={score.label} active={open} {...score} />
+            {categoryScores.map((score, index) => (
+              <Score
+                key={score.label}
+                active={open}
+                index={index}
+                {...score}
+              />
             ))}
             <div className={styles.agentic}>
+              {/* Already complete, so no count-up and no burst — just green. */}
               <span className={styles.agenticPill}>
                 <span className={styles.agenticDot} aria-hidden="true" />
                 <span>2/2</span>
@@ -165,7 +147,7 @@ export function PerformanceAnalytics() {
               <span className={styles.label}>Agentic Browsing</span>
             </div>
           </div>
-          <ScoreRing label="Performance" value={100} active={open} large />
+          <Score label="Performance" value={100} active={open} index={4} large />
           <div className={styles.metrics} aria-label="Performance metrics">
             <div className={styles.metricsHeader}>
               <h3 className={styles.metricsTitle}>Metrics</h3>

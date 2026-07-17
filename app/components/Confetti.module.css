@@ -1,0 +1,94 @@
+/*
+ * Registered so the burst interpolates. Unregistered custom properties are
+ * treated as strings, so a calc() over them inside translate3d would snap
+ * between keyframes instead of tweening. <length> makes them animatable.
+ */
+@property --confetti-dx {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --confetti-dy {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --confetti-fall {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+/*
+ * Sits over its parent and anchors the burst to the parent's centre, so each
+ * ring gets its own firework rather than sharing one at the panel's centre.
+ * The parent must be position: relative.
+ */
+.burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: calc(var(--confetti-size) / -2);
+  margin-top: calc(var(--confetti-size) / -2);
+  width: var(--confetti-size);
+  height: var(--confetti-size);
+  border-radius: 999px;
+  background: var(--confetti-color);
+  opacity: 0;
+  box-shadow: 0 0 0.6rem var(--confetti-color);
+  animation: confettiBurst var(--confetti-duration) var(--confetti-delay) both;
+  /* Fast out of the centre, slowing as it reaches the top of its arc. */
+  animation-timing-function: cubic-bezier(0.15, 0.6, 0.3, 1);
+}
+
+/*
+ * Firework: explode from the centre, then fall.
+ *   0%   at the centre, unseen
+ *   8%   ignition — full brightness, still near the centre
+ *   55%  the burst reaches its full radius along --confetti-dx/dy
+ *   100% gravity takes over: same x, dropped by --confetti-fall, faded out
+ */
+@keyframes confettiBurst {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.2);
+  }
+  8% {
+    opacity: 1;
+    transform: translate3d(
+        calc(var(--confetti-dx) * 0.12),
+        calc(var(--confetti-dy) * 0.12),
+        0
+      )
+      scale(1);
+  }
+  55% {
+    opacity: 1;
+    transform: translate3d(var(--confetti-dx), var(--confetti-dy), 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(
+        var(--confetti-dx),
+        calc(var(--confetti-dy) + var(--confetti-fall)),
+        0
+      )
+      scale(0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+    opacity: 0;
+  }
+}

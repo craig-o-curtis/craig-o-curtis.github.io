@@ -24,6 +24,8 @@ type ActionButtonProps = {
   fileInfo?: string
   /** Overrides the variant's default icon. Pass null to render no icon. */
   icon?: IconComponent | null
+  /** Force a new tab for a same-origin href. External hrefs do this anyway. */
+  newTab?: boolean
 }
 
 /**
@@ -39,21 +41,26 @@ export function ActionButton({
   children,
   fileInfo,
   icon,
+  newTab = false,
 }: ActionButtonProps) {
   const Icon = icon === undefined ? VARIANT_ICON[variant] : icon
   const isExternal = /^https?:\/\//.test(href)
+  // A download never navigates, so a new tab would be meaningless there.
+  const opensNewTab = variant !== 'download' && (isExternal || newTab)
 
   return (
     <a
       className={styles.button}
       href={href}
       {...(variant === 'download' ? { download: true } : {})}
-      {...(isExternal ? { target: '_blank', rel: 'noreferrer' } : {})}
+      {...(opensNewTab ? { target: '_blank', rel: 'noreferrer' } : {})}
     >
       {Icon ? <Icon className={styles.icon} aria-hidden={true} /> : null}
       <span>{children}</span>
       {fileInfo ? <span className="sr-only"> ({fileInfo})</span> : null}
-      {isExternal ? <span className="sr-only"> (opens in a new tab)</span> : null}
+      {opensNewTab ? (
+        <span className="sr-only"> (opens in a new tab)</span>
+      ) : null}
     </a>
   )
 }

@@ -1,0 +1,148 @@
+/*
+ * The box is the ring plus --ring-label-room on every side, so labels sitting
+ * outside the arc stay inside it. The panel clips its own overflow and would
+ * otherwise cut off the left- and right-most labels.
+ */
+.ring {
+  position: relative;
+  display: grid;
+  place-items: center;
+  box-sizing: content-box;
+  width: var(--ring-size);
+  height: var(--ring-size);
+  padding: var(--ring-label-room, 0rem);
+  /* Overridable by the consumer; defaults suit the Lighthouse panel. */
+  --ring-color: var(--score-green, #00d26a);
+  --ring-track: var(--score-green-dark, #123724);
+}
+
+.svg {
+  /* Fills the content box — the padding is label room, not ring. */
+  width: var(--ring-size);
+  height: var(--ring-size);
+  /* Start the arc at 12 o'clock rather than 3 o'clock. */
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.track {
+  fill: none;
+  stroke: var(--ring-track);
+  stroke-width: var(--ring-stroke);
+}
+
+.progress,
+.progressStatic {
+  fill: none;
+  stroke: var(--ring-color);
+  stroke-width: var(--ring-stroke);
+  stroke-linecap: round;
+}
+
+/*
+ * Sweeps the arc around the perimeter from nothing to --ring-score, colouring
+ * as it goes. Offset 100 is an empty ring; --ring-offset (100 - score) is the
+ * arc drawn to its score.
+ *
+ * --ring-offset is computed in JS rather than with calc() here: mixing a
+ * unitless 100 with calc(100 - var(...)) yields incompatible types and the
+ * browser snaps between the keyframes instead of tweening.
+ */
+.progress {
+  stroke-dashoffset: 100;
+  animation: drawScore 1.25s ease-out both, scoreColor 1.25s linear both;
+}
+
+.progressStatic {
+  stroke-dashoffset: var(--ring-offset);
+}
+
+.breaks line {
+  /* Matches the panel behind the ring, so the arc appears interrupted. */
+  stroke: var(--lighthouse-panel, #202020);
+  stroke-linecap: butt;
+}
+
+.value {
+  position: absolute;
+  font-size: var(--ring-value-size);
+  font-weight: 600;
+  color: var(--ring-color);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tracks the arc's colour sweep on the same timing. */
+.valueAnimated {
+  animation: valueColor 1.25s linear both;
+}
+
+/*
+ * Placed from the centre of the ring by its own offset vector, so the position
+ * is independent of the box's padding.
+ */
+.label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+    translate(var(--label-dx), var(--label-dy));
+  color: var(--fg);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+@keyframes drawScore {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: var(--ring-offset);
+  }
+}
+
+/* Lighthouse's own grey → red → orange → yellow → green sweep. */
+@keyframes scoreColor {
+  0% {
+    stroke: var(--score-grey, #777771);
+  }
+  22% {
+    stroke: var(--score-red, #dd3b3b);
+  }
+  48% {
+    stroke: var(--score-orange, #d06b3b);
+  }
+  72% {
+    stroke: var(--score-yellow, #d8bd3f);
+  }
+  100% {
+    stroke: var(--ring-color);
+  }
+}
+
+/* The same sweep for the number in the middle. */
+@keyframes valueColor {
+  0% {
+    color: var(--score-grey, #777771);
+  }
+  22% {
+    color: var(--score-red, #dd3b3b);
+  }
+  48% {
+    color: var(--score-orange, #d06b3b);
+  }
+  72% {
+    color: var(--score-yellow, #d8bd3f);
+  }
+  100% {
+    color: var(--ring-color);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
