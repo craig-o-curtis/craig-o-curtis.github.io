@@ -1,0 +1,93 @@
+.main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 6rem 0 8rem;
+}
+
+.name {
+  font-size: 1.6rem;
+  margin: 0 0 0.4rem;
+}
+
+.title {
+  color: var(--muted);
+  margin: 0 0 2.5rem;
+}
+
+.intro p {
+  margin: 0 0 1rem;
+}
+
+.cta {
+  margin: 2rem 0 4rem;
+}
+
+.download {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.download:hover {
+  border-color: var(--accent);
+}
+
+.section {
+  margin: 0 0 4rem;
+}
+
+.sectionTitle {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  margin: 0 0 1.5rem;
+}
+
+.itemName {
+  font-size: 1rem;
+  margin: 0 0 0.2rem;
+}
+
+.itemMeta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.itemDesc {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.placeholder {
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 4rem 0 5rem;
+  }
+}
