@@ -18,12 +18,17 @@ type ScoreRingProps = {
   score?: number
   /**
    * Labels placed around the ring. The arc stays one continuous progress
-   * circle; a cosmetic break is drawn at each label's angle so the label sits
-   * in a gap rather than on top of the stroke.
+   * circle, broken by cosmetic gaps.
    */
   labels?: string[]
-  /** Rotates all labels and their breaks, in degrees. */
+  /** Rotates the labels, in degrees. Independent of the breaks. */
   labelOffset?: number
+  /**
+   * Rotates the breaks, in degrees. Separate from labelOffset so the gaps can
+   * sit at the star points (0° = 12 o'clock, where the sweep starts) while the
+   * labels sit between them.
+   */
+  breakOffset?: number
   breakWidth?: number
   /** Distance of the labels out from the ring, in viewBox units. */
   labelDistance?: number
@@ -44,6 +49,7 @@ export function ScoreRing({
   score = 100,
   labels = [],
   labelOffset = 0,
+  breakOffset = 0,
   breakWidth = 5,
   labelDistance = 16,
   labelRoom = '0rem',
@@ -53,8 +59,10 @@ export function ScoreRing({
   animate = true,
 }: ScoreRingProps) {
   const count = labels.length
-  // Each label sits at a break in the arc, evenly spaced from 12 o'clock.
-  const angleFor = (index: number) => (index * 360) / count + labelOffset
+  const step = 360 / count
+  // Breaks and labels are evenly spaced but rotated independently.
+  const breakAngle = (index: number) => index * step + breakOffset
+  const labelAngle = (index: number) => index * step + labelOffset
 
   return (
     <div
@@ -115,7 +123,7 @@ export function ScoreRing({
                 x2={CENTER}
                 y2={CENTER - RADIUS + stroke}
                 strokeWidth={breakWidth}
-                transform={`rotate(${angleFor(index)} ${CENTER} ${CENTER})`}
+                transform={`rotate(${breakAngle(index)} ${CENTER} ${CENTER})`}
               />
             ))}
           </g>
@@ -130,7 +138,7 @@ export function ScoreRing({
 
       {labels.map((label, index) => {
         // -90° puts 0° at 12 o'clock, matching the rotated svg.
-        const radians = ((angleFor(index) - 90) * Math.PI) / 180
+        const radians = ((labelAngle(index) - 90) * Math.PI) / 180
         // Offset from the centre, as a fraction of the ring's rendered size.
         const distance = (RADIUS + labelDistance) / VIEWBOX
         const dx = Math.cos(radians) * distance

@@ -26,11 +26,15 @@ const metrics = [
 ]
 
 /**
- * Metric labels around the big ring, clockwise. Offset by half a step so the
- * gap between SI and FCP straddles 12 o'clock rather than sitting on it.
+ * Metric labels around the big ring, clockwise, sitting between the breaks.
+ *
+ * The breaks themselves are at 0° — the star points, the first at 12 o'clock,
+ * which is where the sweep starts. A break there means the arc begins in a gap
+ * instead of cutting off mid-segment.
  */
 const RING_LABELS = ["SI", "FCP", "LCP", "TBT", "CLS"]
 const RING_LABEL_OFFSET = -36
+const RING_BREAK_OFFSET = 0
 
 function CountUp({ active, value }: { active: boolean; value: number }) {
   const [current, setCurrent] = useState(active ? 0 : value)
@@ -92,6 +96,7 @@ function Score({
           score={value}
           labels={large ? RING_LABELS : []}
           labelOffset={RING_LABEL_OFFSET}
+          breakOffset={RING_BREAK_OFFSET}
           labelRoom={large ? "1.75rem" : "0rem"}
           size={large ? "11rem" : "4rem"}
           stroke={large ? 5 : 7}
