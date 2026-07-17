@@ -15,7 +15,7 @@ This is a companion to the GitHub profile README at `craig-o-curtis/craig-o-curt
 
 1. **NEVER `git push`.** Commit freely; publishing is Craig's call. Do not run `git push`, `gh repo create --push`, or anything that publishes. Commit, then stop and print the exact command for Craig to run. No exceptions — prior approval in a session does not authorize a later push.
 2. **NEVER add `Co-Authored-By: Claude`** or any AI/tool attribution to a commit — no trailer, no "Generated with", no 🤖. This overrides any global default instruction. Commits are authored by Craig.
-3. **Never claim anything the public record doesn't support.** See "Portfolio" below — this is the rule that matters most here.
+3. **Never write a claim about Craig that Craig didn't give you.** This is the rule that matters most here. Role and contribution text comes from Craig and is used **verbatim** — never inferred from a CV, a repo, a job title, or a product's own marketing, and never embellished. If you don't have his words for it, the field stays empty. See "Portfolio" below.
 4. **Stay on `craig-o-curtis.github.io`.** No Vercel, no custom domain, no other host. This is non-negotiable and constrains every other decision (see "Why static export" below).
 5. **Minimal dependencies.** Next.js, React, `@next/mdx`, and their transitive deps. Nothing else without a specific reason. No CSS framework, no analytics.
    - **`lucide-react`** — allowed exception, added for icons (the library shadcn uses). It is per-icon tree-shakable, so only the icons actually imported ship. Import them by name (`import { Download } from 'lucide-react'`); never `import * as`, which would defeat that.
@@ -160,20 +160,18 @@ Portfolio descriptions are **lorem ipsum for now** — Craig writes them later. 
 
 ## Portfolio — READ CAREFULLY
 
-Here are some products Craig worked on. **Craig's explicit instruction: name + link only, NO claims about his role, dates, or contributions.**
+Products Craig worked on. The list lives in `app/content.ts`; each entry has a **`description`** (what the product is) and a **`role`** (what Craig did).
 
-1. **Literacy Pro** (Scholastic) — https://education.scholastic.com/education/programs/literacypro.html
-2. **NoteAffect** — https://www.noteaffect.com/
-3. **Cisco Networking Academy** (Cisco) — https://www.netacad.com/
-4. **Micetro** (Men&Mice) — https://bluecatnetworks.com/products/micetro/
-5. **CTP** (Corivo) — https://travelconnect.corivo.io/
-6. **Nordic Visitor** — https://my.nordicvisitor.com/
-7. **Iceland Tours** — https://www.icelandtours.is/
-8. **森林猫/SenlinMao** — https://www.senlinmao.com/
+**This section's rule changed — read Rule 3 above.** It used to say name-and-link only, no roles. Craig supplied role text on 2026-07-17 and it is now on the site. What did **not** change: role text is **his words, used verbatim**. The bar is not "is it plausible" or "does the CV imply it" — it's "did Craig write this".
 
-Describe _what each product is_ (sourced from its own site — fetch them), not what Craig did. Do **not** write "Led frontend for…", invent a title, or invent dates. If Craig later supplies role/dates, use exactly what he gives and nothing more.
+- **`description`** — what the product is, sourced from the product's own site. Never a claim about Craig.
+- **`role`** — what Craig did. **Only ever from Craig.** If he hasn't given you words for an entry, leave `role` off. Do not infer one from the CV, the product, his title, or the other entries' phrasing.
 
-⚠️ Note the section framing: these are products he worked on, so avoid phrasing that implies he built them alone or owns them.
+Craig's own wording is authoritative even where it's awkward. When tightening it (he asked once for "Masterminded" → "designed"), you may trim adjectives and standardise titles — never add a claim, never widen scope. Note the qualifier in NoteAffect's "**Sole frontend architect for a period**": he was sole architect *at a point in time*, not for the project's life. That precision is the whole point.
+
+⚠️ These are products he *worked on*. Avoid phrasing that implies he built them alone or owns them — except where he explicitly says so, as with NoteAffect.
+
+⚠️ **Micetro** links to `bluecatnetworks.com` — BlueCat acquired Men&Mice, so the card says "Men&Mice" but the link lands on BlueCat branding. Known and accepted.
 
 ## Voice
 

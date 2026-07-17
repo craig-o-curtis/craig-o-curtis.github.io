@@ -36,14 +36,14 @@ export const portfolio: ProjectCardProps[] = [
     href: "https://education.scholastic.com/education/programs/literacypro.html",
     description:
       "An independent-reading platform where students find books, set goals, track reading progress and complete comprehension check-ins while teachers manage levels, recommendations and reporting.",
-    role: "Frontend architecture and implementation for student and educator reading workflows.",
+    role: "Key frontend architect. Built the onboarding flow and its CSS animation work, accessible interfaces for young learners, in-browser ebook navigation and audio playback tools.",
   },
   {
     name: "NoteAffect",
     href: "https://www.noteaffect.com/",
     description:
       "An AI-powered classroom engagement platform for live lesson capture, interactive note-taking, Q&A, multilingual captions, recordings and engagement analytics.",
-    role: "Frontend product work on the instructor and learner experience.",
+    role: "Sole frontend architect for a period. Built the HTML canvas note-taking tool.",
   },
   {
     name: "Cisco Networking Academy",
@@ -51,7 +51,7 @@ export const portfolio: ProjectCardProps[] = [
     href: "https://www.netacad.com/",
     description:
       "Cisco's global learning platform for free and certification-aligned courses in networking, cybersecurity, programming, AI, data science and related career paths.",
-    role: "Frontend implementation for learning, course and assessment experiences.",
+    role: "Frontend developer. Built learning modules fed by large markdown-driven data sets, in Gatsby.",
   },
   {
     name: "Micetro",
@@ -59,7 +59,7 @@ export const portfolio: ProjectCardProps[] = [
     href: "https://bluecatnetworks.com/products/micetro/",
     description:
       "A browser-based DDI platform for managing DNS, DHCP and IPAM across on-prem, hybrid and cloud environments, including DNS zones, IP address space, reports, workflows and admin controls.",
-    role: "Frontend engineering for complex enterprise network-management workflows.",
+    role: "Frontend developer and UI architect. Built out feature work, split the shared component and utility libraries, and led theming.",
   },
   {
     name: "CTP",
@@ -67,35 +67,35 @@ export const portfolio: ProjectCardProps[] = [
     href: "https://travelconnect.corivo.io/",
     description:
       "Corivo Travel Platform, a travel-operations system used by tour operators to automate business processes, integrate external services and manage day-to-day travel workflows.",
-    role: "Full-stack product engineering across travel operations and booking workflows.",
+    role: "Frontend developer and UI / utility architect. Built the company-wide component and utility libraries, drove the migration off legacy and deprecated code, upgraded the data layer to TanStack Query, and designed the Temporal-only date utilities.",
   },
   {
     name: "Iceland Tours",
     href: "https://www.icelandtours.is/",
     description:
       "A Reykjavik-based travel site for self-drive, guided, private, camping and multi-day Iceland vacation packages with flexible dates, local planning and online booking.",
-    role: "Frontend engineering for package discovery, trip configuration and booking flows.",
+    role: "Key Frontend architect. Built the cross-app theming and localization for the shared monorepo behind this and SenlinMao.",
   },
   {
     name: "森林猫 / SenlinMao",
     href: "https://www.senlinmao.com/",
     description:
       "A Chinese-market travel site offering Iceland and Europe packages, including self-drive, group, private and camping trips with Chinese-language planning content.",
-    role: "Frontend localization and booking experience work for Chinese-speaking travelers.",
+    role: "Key Frontend architect and localizer. Built the cross-app theming and localization with Iceland Tours, led the Chinese translation and localization, and fixed the date/time handling.",
   },
   {
     name: "Nordic Visitor Customer Portal",
     href: "https://my.nordicvisitor.com/",
     description:
       "A customer portal for Nordic Visitor travelers to access post-booking materials such as vouchers, travel documents, itinerary details and support information.",
-    role: "Frontend engineering for post-booking self-service and travel-document access.",
+    role: "Lead frontend developer. Built the shared utility libraries and UI component package across both portals, led theming, and created the PDF generation service.",
   },
   {
     name: "Iceland Travel Customer Portal",
     href: "https://my.icelandtravel.com/",
     description:
       "A customer portal for Iceland Travel bookings, giving travelers a single place to review trip details and access the documents they need before departure.",
-    role: "Frontend engineering for traveler account, booking and document workflows.",
+    role: "Lead frontend developer. Sister portal to Nordic Visitor, sharing the same utility libraries, UI component package and PDF generation service.",
   },
 ];
 
