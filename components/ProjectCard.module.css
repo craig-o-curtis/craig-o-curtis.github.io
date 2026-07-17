@@ -1,0 +1,24 @@
+.name {
+  font-size: 1rem;
+  margin: 0 0 0.15rem;
+}
+
+.org {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/*
+ * Placeholder copy is set in italic only — no opacity. An earlier version used
+ * opacity: 0.75, which dropped the rendered contrast to 3.15:1 and failed AA.
+ */
+.placeholder {
+  font-style: italic;
+}

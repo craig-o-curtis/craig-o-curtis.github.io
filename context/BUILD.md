@@ -30,6 +30,38 @@ This is a companion to the GitHub profile README at `craig-o-curtis/craig-o-curt
 
 **What static export costs:** no server. No API routes, no server actions, no middleware, no ISR, no image optimization (hence `images.unoptimized: true`). Everything is either build-time or client-side. Accept this — it is the price of Rule 4.
 
+### Accessibility — target is WCAG 2.2 **AAA**
+
+Verified with axe-core (AAA ruleset) in light and dark: **0 violations, 37 nodes passing `color-contrast-enhanced`**.
+
+Colour tokens live in `app/globals.css` and are chosen against the 7:1 AAA threshold. Measured:
+
+| token | light | dark | needs |
+|---|---|---|---|
+| `--fg` | 17.11:1 | 15.05:1 | 7:1 (AAA text) |
+| `--muted` | 7.48:1 | 7.46:1 | 7:1 (AAA text) |
+| `--control` | 4.49:1 | 4.78:1 | 3:1 (SC 1.4.11, interactive borders) |
+| `--rule` | 1.25:1 | 1.28:1 | — decorative divider, exempt |
+
+Rules that are easy to break:
+
+1. **Never stack `opacity` on `--muted` text.** The original `.placeholder` used `opacity: 0.75`, which rendered at **3.15:1** and failed even AA. The tokens are only AAA at full opacity. Use italics, weight, or a different token — not transparency.
+2. **`--rule` is decorative only.** It's a section divider at ~1.25:1. Any *interactive* boundary (button, focus ring, card hover) must use `--control`. Do not "fix" `--rule` to 3:1 — SC 1.4.11 does not apply to decorative separators, and darkening it would wreck the minimal look for no accessibility gain.
+3. Keep the skip link (SC 2.4.1), `:focus-visible` outline (SC 2.4.7/2.4.13), and the `prefers-reduced-motion` block.
+
+Re-run the audit after any visual change (see "Verifying").
+
+### Components
+
+`app/page.tsx` is composition only — no data, no markup details. Content lives in `app/content.ts`; name/title in `app/identity.ts`.
+
+- **`Section`** — titled section: uppercase label + hairline rule + children.
+- **`Card` / `CardList`** — bordered `<li>` and its `<ul>` wrapper. Presentational.
+- **`ProjectCard`** — linked name, optional `org`, description. Used by *both* the open-source and portfolio lists; they were near-identical loops before. `descriptionIsPlaceholder` renders the lorem in italics.
+- **`DownloadButton`** — download link styled as a button; `fileInfo` extends the accessible name (e.g. "PDF, 2 pages"), and the ↓ is `aria-hidden`.
+
+Card links are **title-only**, not whole-card — one clear tab stop per item, no stretched-link or nested-interactive complications.
+
 ### Stack
 
 - **Next.js (App Router)**, static export
@@ -147,6 +179,14 @@ When it does get built, the CV markdown is the natural knowledge source for the 
 - `pnpm build` succeeds and `out/` contains `index.html` plus a populated `_next/` directory.
 - Serve `out/` locally (`npx serve out`) and **actually look at it** — not the dev server, the exported output. Check light AND dark. Check narrow viewport.
 - Confirm `out/.nojekyll` exists. If it's missing, the deployed site will load unstyled.
+- **Run the axe audit against the served export, in light AND dark.** Must be 0 violations. Enable the AAA rules explicitly — axe's default config only checks AA and will report a false pass:
+  ```js
+  axe.run(document, { runOnly: { type: 'tag', values: [
+    'wcag2a','wcag2aa','wcag2aaa','wcag21a','wcag21aa','wcag22aa','best-practice'
+  ] } })
+  ```
+  Check that `color-contrast-enhanced` appears in `passes` (that's the 7:1 AAA rule), not merely that violations is 0.
+- Tab through the page: first Tab must reveal the skip link, and every link must show a visible focus outline.
 - Click the Download CV button in the served output and confirm the PDF actually resolves.
 - `curl -s -o /dev/null -w "%{http_code}"` every external link — all should be 200, with two known bot-blocking exceptions that are NOT broken links:
   - **Micetro** (`bluecatnetworks.com`) returns **403** to plain curl — it's behind Cloudflare. Verified 200 with browser-shaped headers (`-A` a real UA plus `Accept`/`Accept-Language`).
