@@ -5,6 +5,8 @@ export type ProjectCardProps = {
   name: string
   href: string
   description: string
+  /** Craig's contribution to the product, shown below the description. */
+  role?: string | null
   /** Owning company or publisher, shown next to the name. */
   org?: string | null
   /** Renders the description as italic placeholder copy. */
@@ -16,6 +18,7 @@ export function ProjectCard({
   name,
   href,
   description,
+  role = null,
   org = null,
   descriptionIsPlaceholder = false,
 }: ProjectCardProps) {
@@ -32,6 +35,7 @@ export function ProjectCard({
       >
         {description}
       </p>
+      {role ? <p className={styles.role}>Role: {role}</p> : null}
     </Card>
   )
 }

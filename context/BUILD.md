@@ -17,7 +17,8 @@ This is a companion to the GitHub profile README at `craig-o-curtis/craig-o-curt
 2. **NEVER add `Co-Authored-By: Claude`** or any AI/tool attribution to a commit — no trailer, no "Generated with", no 🤖. This overrides any global default instruction. Commits are authored by Craig.
 3. **Never claim anything the public record doesn't support.** See "Portfolio" below — this is the rule that matters most here.
 4. **Stay on `craig-o-curtis.github.io`.** No Vercel, no custom domain, no other host. This is non-negotiable and constrains every other decision (see "Why static export" below).
-5. **Minimal dependencies.** Next.js, React, `@next/mdx`, and their transitive deps. Nothing else without a specific reason. No UI library, no CSS framework, no analytics.
+5. **Minimal dependencies.** Next.js, React, `@next/mdx`, and their transitive deps. Nothing else without a specific reason. No CSS framework, no analytics.
+   - **`lucide-react`** — allowed exception, added for icons (the library shadcn uses). It is per-icon tree-shakable, so only the icons actually imported ship. Import them by name (`import { Download } from 'lucide-react'`); never `import * as`, which would defeat that.
 6. **Verify before reporting success.** Do not say something works until you've tested the actual thing (see "Verifying" below).
 
 ## Architecture
@@ -36,17 +37,17 @@ Verified with axe-core (AAA ruleset) in light and dark: **0 violations, 37 nodes
 
 Colour tokens live in `app/styles/theme.css` and are chosen against the 7:1 AAA threshold. Measured:
 
-| token | light | dark | needs |
-|---|---|---|---|
-| `--fg` | 17.11:1 | 15.05:1 | 7:1 (AAA text) |
-| `--muted` | 7.48:1 | 7.46:1 | 7:1 (AAA text) |
-| `--control` | 4.49:1 | 4.78:1 | 3:1 (SC 1.4.11, interactive borders) |
-| `--rule` | 1.25:1 | 1.28:1 | — decorative divider, exempt |
+| token       | light   | dark    | needs                                |
+| ----------- | ------- | ------- | ------------------------------------ |
+| `--fg`      | 17.11:1 | 15.05:1 | 7:1 (AAA text)                       |
+| `--muted`   | 7.48:1  | 7.46:1  | 7:1 (AAA text)                       |
+| `--control` | 4.49:1  | 4.78:1  | 3:1 (SC 1.4.11, interactive borders) |
+| `--rule`    | 1.25:1  | 1.28:1  | — decorative divider, exempt         |
 
 Rules that are easy to break:
 
 1. **Never stack `opacity` on `--muted` text.** The original `.placeholder` used `opacity: 0.75`, which rendered at **3.15:1** and failed even AA. The tokens are only AAA at full opacity. Use italics, weight, or a different token — not transparency.
-2. **`--rule` is decorative only.** It's a section divider at ~1.25:1. Any *interactive* boundary (button, focus ring, card hover) must use `--control`. Do not "fix" `--rule` to 3:1 — SC 1.4.11 does not apply to decorative separators, and darkening it would wreck the minimal look for no accessibility gain.
+2. **`--rule` is decorative only.** It's a section divider at ~1.25:1. Any _interactive_ boundary (button, focus ring, card hover) must use `--control`. Do not "fix" `--rule` to 3:1 — SC 1.4.11 does not apply to decorative separators, and darkening it would wreck the minimal look for no accessibility gain.
 3. Keep the skip link (SC 2.4.1), `:focus-visible` outline (SC 2.4.7/2.4.13), and the `prefers-reduced-motion` block.
 
 Re-run the audit after any visual change (see "Verifying").
@@ -55,13 +56,13 @@ Re-run the audit after any visual change (see "Verifying").
 
 Global CSS lives in **`app/styles/`**, imported once by `app/layout.tsx` as `./styles/globals.css`. Each file has one job:
 
-| file | holds | rule of thumb |
-|---|---|---|
-| `theme.css` | `:root` design tokens, light + dark | no selectors other than `:root` |
-| `reset.css` | browser normalisation | no design decisions |
-| `base.css` | bare element styling (`body`, `a`, `h1`–`h3`, `:focus-visible`) | tags only, no classes |
-| `utilities.css` | global classes (`.sr-only`, `.skip-link`) | applied by name from markup |
-| `globals.css` | `@import`s the four above | **imports only, never rules** |
+| file            | holds                                                           | rule of thumb                   |
+| --------------- | --------------------------------------------------------------- | ------------------------------- |
+| `theme.css`     | `:root` design tokens, light + dark                             | no selectors other than `:root` |
+| `reset.css`     | browser normalisation                                           | no design decisions             |
+| `base.css`      | bare element styling (`body`, `a`, `h1`–`h3`, `:focus-visible`) | tags only, no classes           |
+| `utilities.css` | global classes (`.sr-only`, `.skip-link`)                       | applied by name from markup     |
+| `globals.css`   | `@import`s the four above                                       | **imports only, never rules**   |
 
 **Import order is load-bearing**: `theme` first (everything consumes its variables), `utilities` last (so it can override `base`).
 
@@ -77,8 +78,8 @@ Components live in **`app/components/`** (not a root-level `components/`), impor
 
 - **`Section`** — titled section: uppercase label + hairline rule + children.
 - **`Card` / `CardList`** — bordered `<li>` and its `<ul>` wrapper. Presentational.
-- **`ProjectCard`** — linked name, optional `org`, description. Used by *both* the open-source and portfolio lists; they were near-identical loops before. `descriptionIsPlaceholder` renders the lorem in italics.
-- **`DownloadButton`** — download link styled as a button; `fileInfo` extends the accessible name (e.g. "PDF, 2 pages"), and the ↓ is `aria-hidden`.
+- **`ProjectCard`** — linked name, optional `org`, description. Used by _both_ the open-source and portfolio lists; they were near-identical loops before. `descriptionIsPlaceholder` renders the lorem in italics.
+- **`ActionButton`** — one appearance, three intents via `variant`: `download` (adds the `download` attribute), `link` (navigates; external hrefs get `target="_blank"` + `rel="noreferrer"` and an "opens in a new tab" note), `analytics`. The variant fixes both the icon and the link semantics together, so a link cannot accidentally download — the earlier `DownloadButton` hardcoded `download`, which silently made "View CV" save the PDF instead of opening it. `fileInfo` extends the accessible name (e.g. "PDF, 2 pages"). Icons are `aria-hidden`: the label already names the action, so announcing the icon would just be noise.
 
 Card links are **title-only**, not whole-card — one clear tab stop per item, no stretched-link or nested-interactive complications.
 
@@ -95,18 +96,18 @@ Card links are **title-only**, not whole-card — one clear tab stop per item, n
 
 ```js
 // next.config.mjs
-import createMDX from '@next/mdx'
+import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  output: "export",
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   images: { unoptimized: true }, // static export cannot run the optimizer
   // NO basePath / assetPrefix — user site serves at root
-}
+};
 
-const withMDX = createMDX({})
-export default withMDX(nextConfig)
+const withMDX = createMDX({});
+export default withMDX(nextConfig);
 ```
 
 An `mdx-components.tsx` at the project root is **required** by `@next/mdx` on the App Router. It won't work without it.
@@ -125,7 +126,7 @@ Keep the landing page the viljami.io-style single scroll. Extra routes exist onl
 
 ### `/` — landing
 
-1. **Name + title** — "Craig O. Curtis", "Product Engineer | Frontend Architect · Fullstack Developer · Chinese Linguist". Both live in **`app/identity.ts`** and are imported by the page and by `metadata` in `app/layout.tsx`. Edit them there and nowhere else — hand-editing the two call sites let them drift out of sync once already (page said "Engineer", metadata said "Developer").
+1. **Name + title** — "Craig O. Curtis", "Product-Minded Frontend Architect, Fullstack Developer, and Chinese Linguist". Both live in **`app/identity.ts`** and are imported by the page and by `metadata` in `app/layout.tsx`. Edit them there and nowhere else — hand-editing the two call sites let them drift out of sync once already (page said "Engineer", metadata said "Developer").
 2. **Intro blurb** — short, first person. Reuse the voice from the profile README. **The current blurb is a placeholder written without access to the README or CV** — it makes no factual claims (no titles, employers, dates), only tone. Craig approves or rewrites it.
 3. **Download CV** — button linking to the static PDF (see "CV" below)
 4. **Open source** — the three Burglekitt projects. VERIFIED, safe to state:
@@ -186,6 +187,7 @@ A ChatGPT/Claude-style chat interface where a visitor can interview Craig.
 **Blocked by Rule 4, not by effort.** The chat needs an Anthropic API key, and a key cannot ship to the browser — anyone could read it from the bundle and spend Craig's money. A static Pages site has no server to hold it. This is a hard technical constraint, not a preference.
 
 Unblocking it requires exactly one of:
+
 - A server/serverless host for the API route (contradicts Rule 4 as written)
 - A separately-hosted API endpoint the static site calls (two deploys, CORS; Rule 4 survives for the site itself)
 - A bring-your-own-key field where the visitor pastes their own API key (no secret to protect, but almost nobody will do it)
@@ -201,9 +203,20 @@ When it does get built, the CV markdown is the natural knowledge source for the 
 - Confirm `out/.nojekyll` exists. If it's missing, the deployed site will load unstyled.
 - **Run the axe audit against the served export, in light AND dark.** Must be 0 violations. Enable the AAA rules explicitly — axe's default config only checks AA and will report a false pass:
   ```js
-  axe.run(document, { runOnly: { type: 'tag', values: [
-    'wcag2a','wcag2aa','wcag2aaa','wcag21a','wcag21aa','wcag22aa','best-practice'
-  ] } })
+  axe.run(document, {
+    runOnly: {
+      type: "tag",
+      values: [
+        "wcag2a",
+        "wcag2aa",
+        "wcag2aaa",
+        "wcag21a",
+        "wcag21aa",
+        "wcag22aa",
+        "best-practice",
+      ],
+    },
+  });
   ```
   Check that `color-contrast-enhanced` appears in `passes` (that's the 7:1 AAA rule), not merely that violations is 0.
 - Tab through the page: first Tab must reveal the skip link, and every link must show a visible focus outline.

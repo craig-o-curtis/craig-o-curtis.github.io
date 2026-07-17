@@ -20,6 +20,10 @@
 
 .cta {
   margin: 2rem 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .links {

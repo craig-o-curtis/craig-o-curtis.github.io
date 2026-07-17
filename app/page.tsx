@@ -1,5 +1,6 @@
+import { ActionButton } from '@/app/components/ActionButton'
 import { CardList } from '@/app/components/Card'
-import { DownloadButton } from '@/app/components/DownloadButton'
+import { PerformanceAnalytics } from '@/app/components/PerformanceAnalytics'
 import { ProjectCard } from '@/app/components/ProjectCard'
 import { Section } from '@/app/components/Section'
 import {
@@ -33,10 +34,21 @@ export default function Home() {
         </div>
 
         <div className={styles.cta}>
-          <DownloadButton href={CV_PATH} fileInfo={CV_FILE_INFO}>
+          <ActionButton variant="link" href={CV_PATH} fileInfo={CV_FILE_INFO}>
+            View CV
+          </ActionButton>
+          <ActionButton
+            variant="download"
+            href={CV_PATH}
+            fileInfo={CV_FILE_INFO}
+          >
             Download CV
-          </DownloadButton>
+          </ActionButton>
         </div>
+
+        <Section title="Performance and Accessibility">
+          <PerformanceAnalytics />
+        </Section>
 
         <Section title="Open source">
           <CardList>

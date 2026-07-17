@@ -1,16 +1,29 @@
 .button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   padding: 0.55rem 1.1rem;
   /* --control, not --rule: SC 1.4.11 requires 3:1 for interactive boundaries. */
   border: 1px solid var(--control);
   border-radius: 4px;
   font-size: 0.95rem;
+  font-family: inherit;
+  line-height: 1.4;
   color: var(--fg);
+  background: none;
   text-decoration: none;
+  cursor: pointer;
   transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .button:hover {
   border-color: var(--accent);
   background: var(--card-hover);
+}
+
+.icon {
+  /* Scales with the label rather than a fixed px size. */
+  width: 1em;
+  height: 1em;
+  flex: none;
 }
