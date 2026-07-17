@@ -13,7 +13,10 @@
       "Bash(npm init *)",
       "Bash(npm i *)",
       "Bash(npx playwright *)",
-      "Bash(node -e \"require.resolve\\('playwright'\\); console.log\\('ok'\\)\")"
+      "Bash(node -e \"require.resolve\\('playwright'\\); console.log\\('ok'\\)\")",
+      "Bash(git ls-tree *)",
+      "Bash(gh run *)",
+      "Bash(curl -s -L https://craig-o-curtis.github.io/)"
     ]
   }
 }

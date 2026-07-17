@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { Confetti } from "@/app/components/Confetti"
-import { ScoreRing } from "@/app/components/ScoreRing"
+import { useEffect, useState } from "react";
+import { Confetti } from "@/app/components/Confetti";
+import { ScoreRing } from "@/app/components/ScoreRing";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/app/components/ui/collapsible"
-import styles from "./PerformanceAnalytics.module.css"
+} from "@/app/components/ui/collapsible";
+import styles from "./PerformanceAnalytics.module.css";
 
 const categoryScores = [
   { label: "Performance", value: 100 },
   { label: "Accessibility", value: 100 },
   { label: "Best Practices", value: 100 },
   { label: "SEO", value: 100 },
-]
+];
 
 const metrics = [
   { label: "First Contentful Paint", value: "0.2 s" },
@@ -23,7 +23,7 @@ const metrics = [
   { label: "Total Blocking Time", value: "0 ms" },
   { label: "Cumulative Layout Shift", value: "0" },
   { label: "Speed Index", value: "0.2 s" },
-]
+];
 
 /**
  * Metric labels around the big ring, clockwise, sitting between the breaks.
@@ -32,45 +32,45 @@ const metrics = [
  * which is where the sweep starts. A break there means the arc begins in a gap
  * instead of cutting off mid-segment.
  */
-const RING_LABELS = ["SI", "FCP", "LCP", "TBT", "CLS"]
-const RING_LABEL_OFFSET = -36
-const RING_BREAK_OFFSET = 0
+const RING_LABELS = ["SI", "FCP", "LCP", "TBT", "CLS"];
+const RING_LABEL_OFFSET = -36;
+const RING_BREAK_OFFSET = 0;
 
 function CountUp({ active, value }: { active: boolean; value: number }) {
-  const [current, setCurrent] = useState(active ? 0 : value)
+  const [current, setCurrent] = useState(active ? 0 : value);
 
   useEffect(() => {
     if (!active) {
-      setCurrent(value)
-      return
+      setCurrent(value);
+      return;
     }
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setCurrent(value)
-      return
+      setCurrent(value);
+      return;
     }
 
-    let frame = 0
-    const duration = 1250
-    const startedAt = performance.now()
+    let frame = 0;
+    const duration = 1250;
+    const startedAt = performance.now();
 
     function tick(now: number) {
-      const progress = Math.min((now - startedAt) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3)
-      setCurrent(Math.round(value * eased))
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCurrent(Math.round(value * eased));
 
       if (progress < 1) {
-        frame = requestAnimationFrame(tick)
+        frame = requestAnimationFrame(tick);
       }
     }
 
-    setCurrent(0)
-    frame = requestAnimationFrame(tick)
+    setCurrent(0);
+    frame = requestAnimationFrame(tick);
 
-    return () => cancelAnimationFrame(frame)
-  }, [active, value])
+    return () => cancelAnimationFrame(frame);
+  }, [active, value]);
 
-  return current
+  return current;
 }
 
 /** A labelled score ring that fires its own confetti burst when revealed. */
@@ -81,12 +81,12 @@ function Score({
   index = 0,
   large = false,
 }: {
-  label: string
-  value: number
-  active: boolean
+  label: string;
+  value: number;
+  active: boolean;
   /** Varies this burst's angles so sibling bursts don't look cloned. */
-  index?: number
-  large?: boolean
+  index?: number;
+  large?: boolean;
 }) {
   return (
     <div className={large ? styles.featuredScore : styles.score}>
@@ -116,18 +116,19 @@ function Score({
         {label}
       </span>
     </div>
-  )
+  );
 }
 
 export function PerformanceAnalytics() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
       <p className={styles.description}>
         This is twofold: it reflects what I strive for and deliver in my
-        projects, and it shows what this site is in practice. These are the
-        Lighthouse scores and metrics for this specific page.
+        projects, and it shows what this site is in practice. Open up the `Show
+        analytics` section to see the Lighthouse scores and metrics for this
+        specific page.
       </p>
       <CollapsibleTrigger className={styles.trigger}>
         {open ? "Hide analytics" : "View analytics"}
@@ -136,12 +137,7 @@ export function PerformanceAnalytics() {
         <div className={styles.panel} aria-label="Lighthouse scores">
           <div className={styles.categories}>
             {categoryScores.map((score, index) => (
-              <Score
-                key={score.label}
-                active={open}
-                index={index}
-                {...score}
-              />
+              <Score key={score.label} active={open} index={index} {...score} />
             ))}
             <div className={styles.agentic}>
               {/* Already complete, so no count-up and no burst — just green. */}
@@ -152,7 +148,13 @@ export function PerformanceAnalytics() {
               <span className={styles.label}>Agentic Browsing</span>
             </div>
           </div>
-          <Score label="Performance" value={100} active={open} index={4} large />
+          <Score
+            label="Performance"
+            value={100}
+            active={open}
+            index={4}
+            large
+          />
           <div className={styles.metrics} aria-label="Performance metrics">
             <div className={styles.metricsHeader}>
               <h3 className={styles.metricsTitle}>Metrics</h3>
@@ -172,5 +174,5 @@ export function PerformanceAnalytics() {
         </div>
       </CollapsibleContent>
     </Collapsible>
-  )
+  );
 }
