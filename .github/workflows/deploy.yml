@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Version comes from the "packageManager" field in package.json.
       - uses: pnpm/action-setup@v4
 
       - uses: actions/setup-node@v4
@@ -31,9 +32,10 @@ jobs:
 
       - run: pnpm build
 
-      - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
+      # Deliberately no actions/configure-pages: its static_site_generator: next
+      # option injects a basePath, which is correct for project sites served at
+      # /repo-name/ but would break this user site served at the domain root.
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: ./out
 
@@ -45,4 +47,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
