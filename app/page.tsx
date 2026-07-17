@@ -1,7 +1,7 @@
-import { CardList } from '@/components/Card'
-import { DownloadButton } from '@/components/DownloadButton'
-import { ProjectCard } from '@/components/ProjectCard'
-import { Section } from '@/components/Section'
+import { CardList } from '@/app/components/Card'
+import { DownloadButton } from '@/app/components/DownloadButton'
+import { ProjectCard } from '@/app/components/ProjectCard'
+import { Section } from '@/app/components/Section'
 import {
   CV_FILE_INFO,
   CV_PATH,

@@ -53,6 +53,8 @@ Re-run the audit after any visual change (see "Verifying").
 
 ### Components
 
+Components live in **`app/components/`** (not a root-level `components/`), imported as `@/app/components/X`. Colocating them under `app/` does not create routes — Next only routes files named `page` or `route`.
+
 `app/page.tsx` is composition only — no data, no markup details. Content lives in `app/content.ts`; name/title in `app/identity.ts`.
 
 - **`Section`** — titled section: uppercase label + hairline rule + children.
