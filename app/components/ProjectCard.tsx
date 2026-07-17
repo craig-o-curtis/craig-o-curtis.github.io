@@ -1,4 +1,5 @@
 import { Card } from './Card'
+import { Link } from './Link'
 import styles from './ProjectCard.module.css'
 
 export type ProjectCardProps = {
@@ -25,7 +26,7 @@ export function ProjectCard({
   return (
     <Card>
       <h3 className={styles.name}>
-        <a href={href}>{name}</a>
+        <Link href={href}>{name}</Link>
         {org ? <span className={styles.org}> · {org}</span> : null}
       </h3>
       <p

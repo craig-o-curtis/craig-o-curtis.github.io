@@ -1,5 +1,6 @@
 import type { ComponentType, ReactNode } from 'react'
 import { ArrowUpRight, ChartNoAxesColumn, Download } from 'lucide-react'
+import { isExternalHref } from './Link'
 import styles from './ActionButton.module.css'
 
 type IconComponent = ComponentType<{ className?: string; 'aria-hidden'?: boolean }>
@@ -44,9 +45,9 @@ export function ActionButton({
   newTab = false,
 }: ActionButtonProps) {
   const Icon = icon === undefined ? VARIANT_ICON[variant] : icon
-  const isExternal = /^https?:\/\//.test(href)
   // A download never navigates, so a new tab would be meaningless there.
-  const opensNewTab = variant !== 'download' && (isExternal || newTab)
+  const opensNewTab =
+    variant !== 'download' && (isExternalHref(href) || newTab)
 
   return (
     <a

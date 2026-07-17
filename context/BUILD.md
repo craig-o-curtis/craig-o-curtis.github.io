@@ -76,6 +76,7 @@ Components live in **`app/components/`** (not a root-level `components/`), impor
 
 `app/page.tsx` is composition only — no data, no markup details. Content lives in `app/content.ts`; name/title in `app/identity.ts`.
 
+- **`Link`** — use this instead of a bare `<a>`. External hrefs open in a new tab with `rel="noreferrer"` and an "opens in a new tab" note for screen readers; same-origin links stay put unless `newTab` is passed. The skip link relies on that default — an in-page jump would break in a new tab. `isExternalHref` is exported so `ActionButton` shares the same rule rather than keeping its own copy.
 - **`Section`** — titled section: uppercase label + hairline rule + children.
 - **`Card` / `CardList`** — bordered `<li>` and its `<ul>` wrapper. Presentational.
 - **`ProjectCard`** — linked name, optional `org`, description. Used by _both_ the open-source and portfolio lists; they were near-identical loops before. `descriptionIsPlaceholder` renders the lorem in italics.

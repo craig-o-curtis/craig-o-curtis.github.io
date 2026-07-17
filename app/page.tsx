@@ -1,5 +1,6 @@
 import { ActionButton } from '@/app/components/ActionButton'
 import { CardList } from '@/app/components/Card'
+import { Link } from '@/app/components/Link'
 import { PerformanceAnalytics } from '@/app/components/PerformanceAnalytics'
 import { ProjectCard } from '@/app/components/ProjectCard'
 import { Section } from '@/app/components/Section'
@@ -75,7 +76,7 @@ export default function Home() {
           <ul className={styles.links}>
             {links.map((link) => (
               <li key={link.label}>
-                <a href={link.href}>{link.label}</a>
+                <Link href={link.href}>{link.label}</Link>
               </li>
             ))}
           </ul>
