@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx ctx7@latest library \"Next.js\" \"static export output export deploy to GitHub Pages\")",
+      "Bash(npx ctx7@latest docs /vercel/next.js \"static export output export deploy to GitHub Pages basePath assetPrefix images unoptimized\")",
+      "Bash(npx ctx7@latest docs /vercel/next.js \"MDX setup app router @next/mdx configuration\")",
+      "Bash(python3 -c ' *)",
+      "Bash(git mv *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm build *)",
+      "Bash(pnpm ls *)",
+      "Bash(npx tsc *)",
+      "Bash(npm init *)",
+      "Bash(npm i *)",
+      "Bash(npx playwright *)",
+      "Bash(node -e \"require.resolve\\('playwright'\\); console.log\\('ok'\\)\")"
+    ]
+  }
+}
