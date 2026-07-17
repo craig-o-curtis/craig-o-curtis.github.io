@@ -64,6 +64,13 @@ export function ScoreRing({
   const breakAngle = (index: number) => index * step + breakOffset
   const labelAngle = (index: number) => index * step + labelOffset
 
+  /*
+   * The <svg> carries rotate(-90deg) so the arc starts at 12 o'clock, and the
+   * break lines inherit it. They're already drawn vertically at the top, so
+   * they need +90° back to land on the apex rather than 90° short of it.
+   */
+  const SVG_ROTATION_OFFSET = 90
+
   return (
     <div
       className={styles.ring}
@@ -123,7 +130,9 @@ export function ScoreRing({
                 x2={CENTER}
                 y2={CENTER - RADIUS + stroke}
                 strokeWidth={breakWidth}
-                transform={`rotate(${breakAngle(index)} ${CENTER} ${CENTER})`}
+                transform={`rotate(${
+                  breakAngle(index) + SVG_ROTATION_OFFSET
+                } ${CENTER} ${CENTER})`}
               />
             ))}
           </g>
