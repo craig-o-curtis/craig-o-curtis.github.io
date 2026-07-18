@@ -13,13 +13,13 @@ export const projects: ProjectCardProps[] = [
     name: "gmt",
     href: "https://github.com/burglekitt/gmt",
     description:
-      "“Give Me Temporal!”: a TypeScript library wrapping the Temporal API in string-in/string-out helpers to kill Date bugs. Published as @burglekitt/gmt.",
+      "“Give Me Temporal!”: a TypeScript library wrapping the Temporal API in string-in/string-out helpers to kill Date bugs. Ships with companion lint packages for oxlint, ESLint and Biome. Nx + pnpm monorepo, published as @burglekitt/gmt.",
   },
   {
     name: "worktree",
     href: "https://github.com/burglekitt/worktree",
     description:
-      "A CLI for the daily Git worktree flow: create, copy .env, open the editor, clean up.",
+      "A CLI for the daily Git worktree flow: create, copy .env, open the editor, clean up. Includes an embedded “Chat with the Docs” AI assistant.",
   },
   {
     name: "run-cv",
@@ -42,7 +42,7 @@ export const portfolio: ProjectCardProps[] = [
     name: "NoteAffect",
     href: "https://www.noteaffect.com/",
     description:
-      "An AI-powered classroom engagement platform for live lesson capture, interactive note-taking, Q&A, multilingual captions, recordings and engagement analytics.",
+      "A classroom engagement platform for live lesson capture, interactive note-taking, Q&A, multilingual captions and recordings.",
     role: "Sole frontend architect for a period. Built the HTML canvas note-taking tool.",
   },
   {
@@ -63,7 +63,7 @@ export const portfolio: ProjectCardProps[] = [
   },
   {
     name: "CTP",
-    org: "Corivo",
+    org: "Corivo (acquired by Travel Connect)",
     href: "https://travelconnect.corivo.io/",
     description:
       "Corivo Travel Platform, a travel-operations system used by tour operators to automate business processes, integrate external services and manage day-to-day travel workflows.",

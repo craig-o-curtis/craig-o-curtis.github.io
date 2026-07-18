@@ -59,6 +59,7 @@ export default function Home() {
         </Section>
 
         <Section title="Open source">
+          <p>Independent open-source engineering at <a href="https://github.com/burglekitt">@burglekitt</a>.</p>
           <CardList>
             {projects.map((project) => (
               <ProjectCard key={project.name} {...project} />
