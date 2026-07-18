@@ -59,18 +59,6 @@
   line-height: 1;
 }
 
-.headerRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.themeToggle {
-  flex-shrink: 0;
-  margin-top: 0.2rem;
-}
-
 @media (max-width: 480px) {
   .main {
     padding: 4rem 0 5rem;

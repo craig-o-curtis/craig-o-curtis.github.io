@@ -26,5 +26,5 @@ type IconProps = {
 }
 
 export function Icon({ name, className }: IconProps) {
-  return <span className={`icon icon-${name} ${className ?? ''}`.trim()}>{icons[name]}</span>
+  return <span className={`icon icon-${name} ${className ?? ''}`.trim()} aria-hidden="true">{icons[name]}</span>
 }

@@ -5,7 +5,6 @@ import { Link } from '@/app/components/Link'
 import { PerformanceAnalytics } from '@/app/components/PerformanceAnalytics'
 import { ProjectCard } from '@/app/components/ProjectCard'
 import { Section } from '@/app/components/Section'
-import { ThemeToggle } from '@/app/components/ThemeToggle'
 import {
   CV_FILE_INFO,
   CV_PATH,
@@ -27,13 +26,8 @@ export default function Home() {
 
       <main id="main" className={styles.main}>
         <header>
-          <div className={styles.headerRow}>
-            <div>
-              <h1 className={styles.name}>{NAME}</h1>
-              <p className={styles.title}>{TITLE}</p>
-            </div>
-            <ThemeToggle className={styles.themeToggle} />
-          </div>
+          <h1 className={styles.name}>{NAME}</h1>
+          <p className={styles.title}>{TITLE}</p>
         </header>
 
         <div className={styles.intro}>
@@ -83,16 +77,18 @@ export default function Home() {
         </Section>
 
         <Section title="Elsewhere">
-          <ul className={styles.links}>
-            {links.map((link) => (
-              <li key={link.label}>
-                <Link href={link.href}>
-                  <Icon name={link.icon} />
-                  <span className={styles.linkLabel}>{link.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <nav aria-label="Social links">
+            <ul className={styles.links}>
+              {links.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href}>
+                    <Icon name={link.icon} />
+                    <span className={styles.linkLabel}>{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </Section>
 
         <Section title="Early Works">
