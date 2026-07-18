@@ -4,8 +4,8 @@ export const CV_PATH = "/assets/senior-software-engineer-cv.pdf";
 export const CV_FILE_INFO = "PDF, 2 pages";
 
 export const intro = [
-  "I build frontends that hold up, and tools that take the tedious parts of the job out back. Mostly TypeScript, mostly on the web.",
-  "I also read and speak Chinese, which is either unrelated or the whole point, depending on the day.",
+  "I build AI-powered applications and tooling that makes teams faster, applications that hold up, and tools that take the tedious parts of the job out back. Mostly TypeScript, mostly on the web.",
+  "I have professional fluency in Chinese, intermediate Finnish, and beginner Swedish. That global perspective translates into frontend work that spans cultures: internationalization, timezone-aware interfaces, and datetime handling that works across regions and calendar systems.",
 ];
 
 export const projects: ProjectCardProps[] = [

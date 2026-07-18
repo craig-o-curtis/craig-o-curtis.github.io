@@ -3,4 +3,4 @@
 export const NAME = "Craig O. Curtis";
 
 export const TITLE =
-  "Product-Minded Frontend Architect, Fullstack Developer, and Chinese Linguist";
+  "Product-Minded and AI-Accelerated Frontend Architect, Fullstack Developer, and Chinese Linguist";
