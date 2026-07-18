@@ -63,4 +63,8 @@
   .main {
     padding: 4rem 0 5rem;
   }
+
+  .hideOnMobile {
+    display: none;
+  }
 }

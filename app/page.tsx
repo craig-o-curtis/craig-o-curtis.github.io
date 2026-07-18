@@ -49,6 +49,7 @@ export default function Home() {
             variant="download"
             href={CV_PATH}
             fileInfo={CV_FILE_INFO}
+            className={styles.hideOnMobile}
           >
             Download CV
           </ActionButton>

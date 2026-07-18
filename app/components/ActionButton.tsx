@@ -27,6 +27,8 @@ type ActionButtonProps = {
   icon?: IconComponent | null
   /** Force a new tab for a same-origin href. External hrefs do this anyway. */
   newTab?: boolean
+  /** Extra classes applied to the root <a>. */
+  className?: string
 }
 
 /**
@@ -43,6 +45,7 @@ export function ActionButton({
   fileInfo,
   icon,
   newTab = false,
+  className,
 }: ActionButtonProps) {
   const Icon = icon === undefined ? VARIANT_ICON[variant] : icon
   // A download never navigates, so a new tab would be meaningless there.
@@ -51,7 +54,7 @@ export function ActionButton({
 
   return (
     <a
-      className={styles.button}
+      className={`${styles.button}${className ? ` ${className}` : ''}`}
       href={href}
       {...(variant === 'download' ? { download: true } : {})}
       {...(opensNewTab ? { target: '_blank', rel: 'noreferrer' } : {})}
