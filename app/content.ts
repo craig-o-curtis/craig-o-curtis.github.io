@@ -1,6 +1,6 @@
 import type { ProjectCardProps } from "@/app/components/ProjectCard";
 
-export const CV_PATH = "/assets/senior-software-engineer-cv.pdf";
+export const CV_PATH = "/senior-software-engineer-cv.pdf";
 export const CV_FILE_INFO = "PDF, 2 pages";
 
 export const intro = [

@@ -141,7 +141,7 @@ Light + dark aware via `prefers-color-scheme`. Responsive, no horizontal scroll.
 
 ### CV
 
-Craig supplied `senior-software-engineer-cv.pdf` (2 pages, 80K). It lives at **`public/assets/senior-software-engineer-cv.pdf`** → served at `/assets/senior-software-engineer-cv.pdf`.
+Craig supplied `senior-software-engineer-cv.pdf` (2 pages, 80K). It lives at **`public/senior-software-engineer-cv.pdf`** → served at `/senior-software-engineer-cv.pdf`.
 
 **It must be under `public/`.** Next.js only serves static files from `public/`; a top-level `assets/` directory is not copied into the export and the link would 404. Keep the original filename so the download lands with a sensible name.
 
