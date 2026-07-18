@@ -100,7 +100,32 @@ export const portfolio: ProjectCardProps[] = [
 ];
 
 export const links = [
-  { label: "GitHub", href: "https://github.com/craig-o-curtis" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/craigocurtis/" },
-  { label: "@burglekitt", href: "https://github.com/burglekitt" },
+  { label: "GitHub", href: "https://github.com/craig-o-curtis", icon: "github" as const },
+  { label: "@burglekitt", href: "https://github.com/burglekitt", icon: "github" as const },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/craigocurtis/", icon: "linkedin" as const },
+  { label: "StackOverflow", href: "https://stackoverflow.com/users/6090533/curtybear", icon: "stackoverflow" as const },
+];
+
+export const earlyWorks: ProjectCardProps[] = [
+  {
+    name: "Driverstest.info",
+    href: "https://driverstest.info",
+    description:
+      "A gamified drivers test practice platform. I contributed to the product vision, UX/UI design, testing, content, and helped build features.",
+    role: "Product, UX/UI, testing, content, development",
+  },
+  {
+    name: "VR-English",
+    href: "https://vr-english.com",
+    description:
+      "An English learning platform focused on content, testing, and product. I worked on the product direction, UX/UI, testing, and content strategy.",
+    role: "Product, UX/UI, testing, content",
+  },
+  {
+    name: "CodePen",
+    href: "https://codepen.io/craigocurtis",
+    description:
+      "My earliest frontend experiments and UI explorations, where I tested ideas, interactions, and visual concepts.",
+    role: "Design and development experiments",
+  },
 ];

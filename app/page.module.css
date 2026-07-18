@@ -35,6 +35,30 @@
   gap: 1.5rem;
 }
 
+.links li {
+  display: flex;
+  align-items: center;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+
+.linkLabel {
+  line-height: 1;
+}
+
 @media (max-width: 480px) {
   .main {
     padding: 4rem 0 5rem;

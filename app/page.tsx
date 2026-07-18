@@ -1,5 +1,6 @@
 import { ActionButton } from '@/app/components/ActionButton'
 import { CardList } from '@/app/components/Card'
+import { Icon } from '@/app/components/Icon'
 import { Link } from '@/app/components/Link'
 import { PerformanceAnalytics } from '@/app/components/PerformanceAnalytics'
 import { ProjectCard } from '@/app/components/ProjectCard'
@@ -11,6 +12,7 @@ import {
   links,
   portfolio,
   projects,
+  earlyWorks,
 } from './content'
 import { NAME, TITLE } from './identity'
 import styles from './page.module.css'
@@ -76,10 +78,21 @@ export default function Home() {
           <ul className={styles.links}>
             {links.map((link) => (
               <li key={link.label}>
-                <Link href={link.href}>{link.label}</Link>
+                <Link href={link.href}>
+                  <Icon name={link.icon} />
+                  <span className={styles.linkLabel}>{link.label}</span>
+                </Link>
               </li>
             ))}
           </ul>
+        </Section>
+
+        <Section title="Early Works">
+          <CardList>
+            {earlyWorks.map((project) => (
+              <ProjectCard key={project.name} {...project} />
+            ))}
+          </CardList>
         </Section>
       </main>
     </>
