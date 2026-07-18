@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: `${NAME} — ${TITLE}`,
   description: `Personal site of ${NAME} — ${TITLE.replace(/ \| /g, ", ").replace(/ · /g, ", ")}.`,
   metadataBase: new URL("https://craig-o-curtis.github.io"),
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
 };
 
 export default function RootLayout({
