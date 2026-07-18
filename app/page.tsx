@@ -5,6 +5,7 @@ import { Link } from '@/app/components/Link'
 import { PerformanceAnalytics } from '@/app/components/PerformanceAnalytics'
 import { ProjectCard } from '@/app/components/ProjectCard'
 import { Section } from '@/app/components/Section'
+import { ThemeToggle } from '@/app/components/ThemeToggle'
 import {
   CV_FILE_INFO,
   CV_PATH,
@@ -26,8 +27,13 @@ export default function Home() {
 
       <main id="main" className={styles.main}>
         <header>
-          <h1 className={styles.name}>{NAME}</h1>
-          <p className={styles.title}>{TITLE}</p>
+          <div className={styles.headerRow}>
+            <div>
+              <h1 className={styles.name}>{NAME}</h1>
+              <p className={styles.title}>{TITLE}</p>
+            </div>
+            <ThemeToggle className={styles.themeToggle} />
+          </div>
         </header>
 
         <div className={styles.intro}>
