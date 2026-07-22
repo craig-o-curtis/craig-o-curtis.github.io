@@ -259,6 +259,80 @@
   }
 }
 
+.blurbs {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.blurb {
+  padding: 1.15rem 1rem;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  border-radius: 4px;
+}
+
+.blurbTitle {
+  margin: 0 0 0.55rem;
+  color: var(--fg);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.blurbText {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.checkList {
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--fg);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.checkIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--score-green);
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .blurbs {
+    gap: 1rem;
+  }
+
+  .blurb {
+    padding: 1rem 0.85rem;
+  }
+
+  .blurbText {
+    font-size: 0.85rem;
+  }
+
+  .checkItem {
+    font-size: 0.82rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .content[data-state] {
     animation: none;

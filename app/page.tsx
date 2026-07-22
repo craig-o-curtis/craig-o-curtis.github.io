@@ -3,6 +3,7 @@ import { CardList } from '@/app/components/Card'
 import { Icon } from '@/app/components/Icon'
 import { Link } from '@/app/components/Link'
 import { PerformanceAnalytics } from '@/app/components/PerformanceAnalytics'
+import { ProductivityAOISection } from '@/app/components/ProductivityAOISection'
 import { ProjectCard } from '@/app/components/ProjectCard'
 import { Section } from '@/app/components/Section'
 import {
@@ -55,7 +56,9 @@ export default function Home() {
           </ActionButton>
         </div>
 
-        <Section title="Performance and Accessibility">
+        <ProductivityAOISection />
+
+        <Section title="Standards &amp; Quality">
           <PerformanceAnalytics />
         </Section>
 

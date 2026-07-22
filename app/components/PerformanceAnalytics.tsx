@@ -125,10 +125,11 @@ export function PerformanceAnalytics() {
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
       <p className={styles.description}>
-        This is twofold: it reflects what I strive for and deliver in my
-        projects, and it shows what this site is in practice. Open up the `Show
-        analytics` section to see the Lighthouse scores and metrics for this
-        specific page.
+        This covers the full quality picture: how the site performs for users,
+        how inclusive it is, how well it ranks, whether it follows modern best
+        practices, and whether agentic tools can actually use it. Open up the
+        `Show analytics` section to see the Lighthouse scores and metrics for
+        this specific page.
       </p>
       <CollapsibleTrigger className={styles.trigger}>
         {open ? "Hide analytics" : "View analytics"}
@@ -140,7 +141,6 @@ export function PerformanceAnalytics() {
               <Score key={score.label} active={open} index={index} {...score} />
             ))}
             <div className={styles.agentic}>
-              {/* Already complete, so no count-up and no burst — just green. */}
               <span className={styles.agenticPill}>
                 <span className={styles.agenticDot} aria-hidden="true" />
                 <span>2/2</span>
@@ -170,6 +170,93 @@ export function PerformanceAnalytics() {
                 </div>
               ))}
             </dl>
+          </div>
+
+          <div className={styles.blurbs}>
+            <div className={styles.blurb}>
+              <h3 className={styles.blurbTitle}>Accessibility</h3>
+
+              <p className={styles.blurbText}>
+                Accessibility is built on the WCAG standards. WCAG 2.0 (2008)
+                established the four core principles — Perceivable, Operable,
+                Understandable, and Robust (POUR). WCAG 2.1 (2018) extended that
+                with new success criteria for mobile use, low-vision support,
+                and cognitive accessibility. WCAG 2.2 (2023) pushed further,
+                introducing requirements like accessible authentication (no
+                cognitive function tests), support for non-dragging alternatives,
+                and enhanced help for users who need more time or fewer
+                interruptions. I target the highest level across every project to
+                make sure the broadest possible audience can use and navigate
+                everything I build.
+              </p>
+
+              <ul className={styles.checkList}>
+                <li className={styles.checkItem}>
+                  <span className={styles.checkIcon} aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+                      <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                    </svg>
+                  </span>
+                  Semantic HTML and ARIA roles used throughout
+                </li>
+                <li className={styles.checkItem}>
+                  <span className={styles.checkIcon} aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+                      <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                    </svg>
+                  </span>
+                  Full keyboard navigation with visible focus indicators
+                </li>
+                <li className={styles.checkItem}>
+                  <span className={styles.checkIcon} aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+                      <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                    </svg>
+                  </span>
+                  Color contrast meets or exceeds WCAG 2.2 AAA standards
+                </li>
+                <li className={styles.checkItem}>
+                  <span className={styles.checkIcon} aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+                      <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                    </svg>
+                  </span>
+                  Skip links and landmark regions for screen reader users
+                </li>
+                <li className={styles.checkItem}>
+                  <span className={styles.checkIcon} aria-hidden="true">
+                    <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+                      <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z" />
+                    </svg>
+                  </span>
+                  Reduced motion preferences respected by default
+                </li>
+              </ul>
+            </div>
+
+            <div className={styles.blurb}>
+              <h3 className={styles.blurbTitle}>SEO</h3>
+              <p className={styles.blurbText}>
+                Every page is built with search intent in mind: meaningful heading
+                hierarchy, descriptive link text, Open Graph and Twitter Card
+                metadata, canonical URLs, and structured data where appropriate.
+                Speed and Core Web Vitals feed directly into rank factors — a
+                fast, accessible site is also a search-friendly one. I treat
+                discoverability as part of the build, not an afterthought.
+              </p>
+            </div>
+
+            <div className={styles.blurb}>
+              <h3 className={styles.blurbTitle}>Agentic Browsing</h3>
+              <p className={styles.blurbText}>
+                Agentic browsing is about whether autonomous AI tools can
+                understand and interact with a site. Clean markup, predictable
+                navigation patterns, and machine-readable content all help agents
+                crawl, summarize, and act on pages correctly. This portfolio
+                scores 2/2 on agentic capability — the agent can both find the
+                content and interact with it.
+              </p>
+            </div>
           </div>
         </div>
       </CollapsibleContent>
