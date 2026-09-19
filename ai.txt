@@ -1,0 +1,6 @@
+# © Craig Curtis. All rights reserved.
+# No part of this site may be used to train, fine-tune or ground AI/ML models,
+# or be included in any dataset. See LICENSE in the source repository.
+
+User-Agent: *
+Disallow: /
