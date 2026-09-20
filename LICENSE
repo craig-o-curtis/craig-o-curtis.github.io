@@ -1,0 +1,49 @@
+Copyright (c) 2026 Craig Curtis. All rights reserved.
+
+PROPRIETARY LICENSE — NO PERMISSIONS GRANTED
+
+This repository and the website it builds (https://craig-o-curtis.github.io),
+including without limitation its source code, architecture, design, layout,
+visual themes, animations, interactive features, written content, CV, text,
+graphics and images (together, the "Work"), are the exclusive property of
+Craig Curtis and are protected by copyright and other intellectual property
+laws.
+
+1. No license. No license or right is granted to you, by implication, estoppel
+   or otherwise. You may not copy, reproduce, modify, adapt, translate, create
+   derivative works of, distribute, publish, publicly display, host, mirror,
+   sublicense, sell or otherwise use the Work, in whole or in part, without the
+   prior written permission of Craig Curtis.
+
+2. Viewing only. The Work is made publicly visible solely so it can be viewed.
+   Visiting the website in a web browser, and the viewing and forking that
+   GitHub's Terms of Service allow on github.com, grant no other right. A fork
+   on GitHub is not a license to use, deploy or republish any part of the Work.
+
+3. No artificial intelligence or machine learning use. You may not use the Work,
+   in whole or in part, to train, fine-tune, evaluate, benchmark or ground any
+   artificial intelligence or machine learning model or system, or include it in
+   any dataset, embedding store, retrieval corpus or index built for that
+   purpose, whether by scraping, crawling, downloading or any other means.
+
+4. Attribution. Where any use is permitted in writing, or is permitted by law
+   without permission (such as a brief quotation), it must credit
+   "Craig Curtis" and link to https://craig-o-curtis.github.io. Removing or
+   altering copyright notices in the Work is prohibited.
+
+5. Third-party components. Third-party software and assets included in or used
+   by the Work remain under their own licenses, and nothing here restricts
+   rights granted by those licenses. These include the npm dependencies listed
+   in package.json (under MIT, ISC, Apache-2.0 and similar licenses), the
+   @northguild/gmt library (MIT), the fonts listed in app/fonts.ts (SIL Open Font
+   License), and the software bundled into the run-cv terminal (listed in its
+   THIRD_PARTY_LICENSES.txt).
+
+6. Enforcement. Unauthorized use may result in takedown notices, including under
+   the U.S. Digital Millennium Copyright Act, and civil action.
+
+7. Disclaimer. THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. IN NO
+   EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY
+   ARISING FROM OR IN CONNECTION WITH THE WORK.
+
+To request permission, use the Contact section at https://craig-o-curtis.github.io.
