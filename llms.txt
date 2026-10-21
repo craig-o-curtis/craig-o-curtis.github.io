@@ -1,0 +1,419 @@
+# Craig Curtis — Senior / Staff Engineer
+
+> I turn fragmented codebases into standards other teams build on. Mostly TypeScript, mostly on the web.
+
+Senior / Staff Engineer · 10+ years · Minneapolis > Helsinki
+https://craig-o-curtis.github.io
+
+This file is generated from the site's own content at build time, so it always
+matches what the page says. Source: app/content/.
+
+© Craig Curtis. All rights reserved. You may quote or summarize this in reply to a
+person's question, with a link to https://craig-o-curtis.github.io. Not for training, fine-tuning or
+any dataset (LICENSE, section 3).
+
+## About
+
+I turn fragmented codebases into standards other teams build on.
+
+I have full professional working proficiency in Chinese (DLPT5 3/3), Finnish at B1 and Swedish at A1. That global perspective translates into frontend work that spans cultures: internationalization, timezone-aware interfaces, and datetime handling that works across regions and calendar systems.
+
+## Availability
+
+Espoo, Finland. U.S. citizen and Finnish permanent resident. Working remotely, and flexible on engagement: direct, contractor, or through an Employer of Record.
+
+## Stack
+
+- **TypeScript** — 11 years
+- **React** — 10 years
+- **Next.js** — 4 years
+- **Node.js / Express** — 4 years
+- **NestJS** — 1 year, current
+- **PostgreSQL** — 3 years
+- **AWS** — 2 years, DVA-C02 in progress
+- **Vue / Nuxt** — 2 years, Nuxt current
+- **Angular** — 2 years
+- **MongoDB** — 2 years
+- **TypeORM / Mongoose** — <1 year, current
+- **Python / FastAPI** — 1+ years, FastAPI current
+- **Astro** — 1 year, current
+- **Cloudflare / AI SDK** — <1 year, current
+- **C#/.NET** — endpoint contributions
+- **SvelteKit** — <1 year, current
+- **Octane** — <1 year, current
+- **Accessibility** — WCAG 2.2 AAA
+
+Also current: Tailwind / Chakra / Shadcn / SCSS · TanStack · Vitest / Playwright · Docker · GitHub Actions (all current)
+
+Also used: GraphQL · Cypress
+
+Testing: 100% unit-test coverage is the goal; lint, typecheck and tests gate every change in CI.
+
+### Capability domains
+
+Each domain's depth is the deepest skill in it, so nothing here claims more
+than the list above.
+
+- **Language & types** — 11 years (TypeScript)
+- **Frontend** — 10 years (React, Next.js, Vue / Nuxt, Angular)
+- **Backend & APIs** — 4 years (Node.js / Express, NestJS, Python / FastAPI)
+- **Databases** — 3 years (PostgreSQL, MongoDB, TypeORM / Mongoose)
+- **Cloud & CI** — 2 years (AWS, Cloudflare / AI SDK)
+
+### State management
+
+Scale, low to high: Next → Evaluated → Used → Shipped.
+
+- **React Context** — Shipped — 10 years
+- **Redux** — Shipped — 6 years
+- **Redux Toolkit** — Shipped — 4 years
+- **MobX** — Used — 2 years
+- **Zustand** — Used — 2 years
+- **XState** — Evaluated — 1 year
+- **Jotai** — Next
+- **Pinia (Vue)** — Next
+
+## Work
+
+### Literacy Pro — Scholastic
+https://education.scholastic.com/education/programs/literacypro.html
+**Role:** Key frontend architect. Built the onboarding flow and its CSS animation work, accessible interfaces for young learners, in-browser ebook navigation and audio playback tools.
+**Product:** An independent-reading platform where students track progress and teachers manage levels and reporting.
+**Contributions:** Onboarding flow · CSS animation · Accessible interfaces · Ebook navigation · Audio playback
+**Capabilities:** animation, a11y, learning, components, testing
+
+### NoteAffect
+https://www.noteaffect.com/
+**Role:** Sole frontend architect for a period. Built the HTML canvas note-taking tool.
+**Product:** A classroom engagement platform for live lesson capture, note-taking, Q&A and captions.
+**Contributions:** HTML canvas · Note-taking tool
+**Capabilities:** learning, components, a11y, testing
+
+### Cisco Networking Academy — Cisco
+https://www.netacad.com/
+**Role:** Frontend developer. Built learning modules fed by large markdown-driven data sets, in Gatsby.
+**Product:** Cisco's global learning platform for networking, cybersecurity, programming and AI courses.
+**Contributions:** Learning modules · Markdown-driven data · Gatsby
+**Capabilities:** learning, data, components, a11y, testing
+
+### Micetro — Men&Mice (Acquired by BlueCat)
+https://bluecatnetworks.com/products/micetro/
+**Role:** Frontend developer and UI architect. Built out feature work, split the shared component and utility libraries, and led theming. Used TanStack Query for the data layer.
+**Impact:** A DDI platform Gartner lists as a representative vendor, used by Fortune 500 enterprises, universities and governments to manage networks spanning millions of IP addresses. Views render tens of thousands of DNS/DHCP records.
+**Product:** A browser-based DDI platform for managing DNS, DHCP and IP address space.
+**Contributions:** Feature work · Component libraries · Utility libraries · Theming · TanStack Query
+**Capabilities:** components, theming, a11y, data, performance
+
+### CTP — Travel Connect
+https://travelconnect.corivo.io/
+**Role:** Frontend developer and UI / utility architect. Built the company-wide component and utility libraries, drove the migration off legacy and deprecated code, upgraded the data layer to TanStack Query, and designed the Temporal-only date utilities. Worked with PostgreSQL across migrations, QA and environment setup, and contributed C#/.NET endpoints.
+**Impact:** A Temporal-first date and time standard other applications depended on, ending a recurring class of timezone bugs on global bookings.
+**Product:** A travel-operations platform tour operators use to automate workflows and integrate external services.
+**Contributions:** Component libraries · Utility libraries · Legacy migration · TanStack Query · Temporal date utilities · PostgreSQL · C#/.NET endpoints
+**Capabilities:** components, data, theming, testing, a11y, performance, migration
+
+### Iceland Tours — Travel Connect
+https://www.icelandtours.is/
+**Role:** Key Frontend architect. Built the cross-app theming and localization for the shared monorepo behind this and SenlinMao.
+**Product:** A Reykjavik-based site for self-drive, guided and multi-day Iceland vacation packages.
+**Contributions:** Cross-app theming · Localization · Shared monorepo
+**Capabilities:** theming, i18n, components, testing, a11y, animation, performance
+
+### 森林猫 / SenlinMao — Travel Connect
+https://www.senlinmao.com/
+**Role:** Key Frontend architect and localizer. Built the cross-app theming and localization with Iceland Tours, led the Chinese translation and localization, and fixed the date/time handling.
+**Impact:** EN/CN localization and cross-app theming supporting expansion into North Atlantic and Asian markets.
+**Product:** A Chinese-market travel site for Iceland and Europe packages.
+**Contributions:** Theming · Localization · Chinese translation · Date/time handling
+**Capabilities:** i18n, theming, data, components, testing, a11y, animation, performance
+
+### Nordic Visitor Customer Portal — Travel Connect
+https://my.nordicvisitor.com/
+**Role:** Lead frontend developer. Built the shared utility libraries and UI component package across both portals, led theming, and created the PDF generation service. Integrated Flywire payments: built the functionality and the UI, with unit and integration tests.
+**Impact:** The flagship customer-facing app, shipped from concept to production in 4 months.
+**Product:** A post-booking portal for vouchers, travel documents and itineraries.
+**Contributions:** Utility libraries · UI component package · Theming · PDF generation service · Flywire payments
+**Capabilities:** components, theming, testing, a11y, animation, performance
+
+### Iceland Travel Customer Portal — Travel Connect
+https://my.icelandtravel.com/
+**Role:** Lead frontend developer. Sister portal to Nordic Visitor, sharing the same utility libraries, UI component package and PDF generation service. Integrated Flywire payments: built the functionality and the UI, with unit and integration tests.
+**Product:** A post-booking portal where Iceland Travel customers review trip details and documents.
+**Contributions:** Utility libraries · UI component package · PDF generation service · Flywire payments
+**Capabilities:** components, theming, testing, a11y, animation, performance
+
+### Driverstest.info — Minted Sky Studios (earlier work)
+**Role:** Co-founder and product owner. Built and monetized it: product, UX/UI, testing, content, development. Run on MySQL in production for a decade.
+**Product:** A gamified drivers test practice platform. (Retired — domain no longer in use.)
+**Contributions:** Product · UX/UI · Testing · Content · Development · MySQL
+**Capabilities:** testing, learning, gamification
+
+### Kapianyingyu.com (earlier work)
+**Role:** Product, UX/UI, content, development. Built a trilingual (Chinese, Japanese, English) vocabulary platform with flashcard-based learning.
+**Product:** A trilingual vocabulary builder using flashcards for Chinese, Japanese, and English learners. (Retired — domain no longer in use.)
+**Contributions:** Product · UX/UI · Content · Development · i18n
+**Capabilities:** learning, testing, i18n
+
+### USUKEnglish.com (earlier work)
+**Role:** Product, UX/UI, content, development. Built a gamified English learning platform with TOEFL/IELTS training simulations, text-to-speech and speech-to-text widgets, and full gamification systems (leaderboards, in-game currency, store, lives, power-ups, hints).
+**Product:** A gamified English learning platform covering US and UK variants with standardized test prep. (Retired — domain no longer in use.)
+**Contributions:** Product · UX/UI · Content · Development · Gamification · Speech
+**Capabilities:** learning, gamification, animation, testing, performance
+
+### VR-English (earlier work)
+https://vr-english.com
+**Role:** Product, UX/UI, testing, content
+**Product:** An English learning platform.
+**Contributions:** Product · UX/UI · Testing · Content
+**Capabilities:** testing, learning
+
+### Centuri Group — Centuri Group (earlier work)
+**Role:** Application Developer. Built 8+ enterprise mobile and web apps digitizing field workflows for natural gas pipeline crews, with offline-first functionality, and led an AngularJS-to-Angular migration on a live product while it kept running for customers.
+**Product:** Internal products — field-workflow apps for North America's largest utility-infrastructure contractor.
+**Contributions:** Enterprise mobile and web apps · Offline-first functionality · AngularJS-to-Angular migration
+**Capabilities:** components, migration, testing, a11y, theming, performance, animation, data
+
+### Industries
+
+**Built:** Education, Travel, Network Infrastructure, Utilities / Energy.
+
+**Next:** Logistics & Transport, IoT, Health / Medical, Finance, Space.
+
+Neither list is a limit: the engineering is the same whatever the industry.
+
+## Raising the bar
+
+Technical leadership without formal authority. Reach scale, low to high:
+My code → My team → Other teams → The whole platform → Outside the company.
+
+### Temporal standard
+**Reach:** Outside the company (Became public as @northguild/gmt)
+
+Timezone bugs were a recurring class across the platform, not isolated incidents: each fix was a patch, and the patches produced the next bug. I set a Temporal-first standard for date and time handling, built as an internal package every application could depend on, a modeling decision I made and owned without waiting for sign-off.
+
+“The engineering work was the smaller half. The larger half was making the architectural case to people who hadn’t been in the weeds of those bugs, then getting other teams to actually adopt it.”
+
+100% data integrity on global bookings, and the bug class stopped recurring.
+
+- Removed: each timezone bug fixed where it surfaced
+- Added: one Temporal-first standard, as an internal package
+- Added: every application on the platform depends on it
+- Added: shipped publicly as @northguild/gmt # 61,613 tests across 10 time zones
+- Added: bugs reported upstream to the polyfill and TC39 proposal # 11 issues and PRs
+
+### Component & utility libraries
+**Reach:** The whole platform (Five shipped products on one platform)
+
+At Corivo I owned the architecture of the internal component and utility standardization used across the platform’s applications.
+
+- Added: shared utility libraries
+- Added: a UI component package
+- Added: cross-app theming
+- Added: a PDF generation service # across five shipped products
+
+### Design tokens
+**Reach:** The whole platform (The whole Micetro platform)
+
+At Men&Mice I led the design-token standardization effort, working directly with the design team, and unified legacy components into a WCAG-compliant design system.
+
+- Removed: legacy components
+- Added: Figma libraries and plugins # with the design team
+- Added: a token-based, production-grade component API
+- Added: one WCAG-compliant design system
+
+### Technical audits
+**Reach:** Other teams (Client decisions)
+
+I ran technical audits and due diligence on client codebases, and gave the deciding call on scale versus refactor.
+
+- Added: technical audit and due diligence # client codebases
+- Added: the deciding call: scale or refactor
+
+### Quality bar & code review
+**Reach:** My team (A 4–8 person distributed team)
+
+On a 4–8 person distributed team I set the quality bar, and mentored the junior engineers on that team.
+
+- Added: Vitest unit-test coverage
+- Added: Playwright end to end
+- Added: CI-enforced checks on every merge
+- Added: code review standards
+
+## Open source
+
+Published npm packages and projects under @northguild, the GitHub collective I co-maintain with a former Travel Connect colleague.
+
+### NorthGuild
+https://northguild.dev/
+
+The home page of @northguild: open-source tools for developers, built in the frigid north. Links to gmt and worktree, set over night-sky panoramas of Ísafjörður and Helsinki where the stars, moon, mountains and skyline are real and only the aurora is simulated.
+
+### gmt
+https://northguild.dev/gmt/
+
+“Give Me Temporal!”: a TypeScript library wrapping the Temporal API in strings-in, strict-types-out helpers to kill Date bugs. 659 functions backed by 61,613 tests across 10 time zones and 3 Node versions, checked weekly against Chromium’s native Temporal. Ships with companion lint packages for oxlint, ESLint and Biome, and a docs site with a WebGPU time zone globe and Dox, an AI documentation assistant. Published as @northguild/gmt, v1.19.0, 1,097 npm downloads in the last 30 days.
+
+### worktree
+https://northguild.github.io/worktree/docs
+
+A CLI for the daily Git worktree flow: create, copy .env, open the editor, clean up. Includes an embedded “Chat with the Docs” AI assistant.
+
+### run-cv
+https://github.com/northguild/run-cv
+
+A mainframe-inspired terminal CV viewer built with Node, React and Ink. Try with `npx run-cv craig`.
+
+### CodeVault
+https://accesscodevault.vercel.app/
+
+A developer knowledgebase SaaS built on Next.js, Neon Postgres, Prisma, Upstash Redis and Stripe.
+
+### Mission Control
+https://craig-o-curtis.github.io/mission-control/
+
+A flexible database POC paying homage to Star Trek: The Next Generation. Built with Python FastAPI and SvelteKit on Svelte 5, served on Render, connected to SQLite and Postgres databases.
+
+### Reporting bugs in JavaScript’s date standard, upstream
+
+While hardening gmt against the TC39 Temporal specification, I found real bugs in the official Temporal polyfill and in the proposal’s own reference implementation, and reported them to both, as verified issues and proposed fixes. gmt already gives the correct answer for every one of them.
+
+Live status: https://northguild.dev/gmt/upstream
+
+#### js-temporal/temporal-polyfill
+https://github.com/js-temporal/temporal-polyfill
+
+The community polyfill every library runs on until Temporal ships natively.
+
+- PR #367 (Range limits): A UTC shortcut skipped a range check, so a result past the last representable instant returned instead of failing. https://github.com/js-temporal/temporal-polyfill/pull/367
+- PR #368 (Calendars): The Japanese calendar gave the wrong era for 1868–1872. https://github.com/js-temporal/temporal-polyfill/pull/368
+- PR #369 (Calendars): Non-Gregorian dates near the ends of the supported range crashed. https://github.com/js-temporal/temporal-polyfill/pull/369
+- PR #370 (Calendars): Counting months in Hebrew or Persian dates near the range limits threw. https://github.com/js-temporal/temporal-polyfill/pull/370
+- PR #371 (Time zones): A transition in the last weeks before the maximum date was missed, crashing startOfDay and hoursInDay. https://github.com/js-temporal/temporal-polyfill/pull/371
+- PR #372 (Time zones): The transition search started in 1847, missing Manila’s 1844 date-line crossing: hoursInDay returned 479,340 hours for a 24-hour day. https://github.com/js-temporal/temporal-polyfill/pull/372
+- Issue #373 (Release): Release request: fixes already on main hadn’t reached users, and a release would also close #341 and #347. https://github.com/js-temporal/temporal-polyfill/issues/373
+
+#### tc39/proposal-temporal
+https://github.com/tc39/proposal-temporal
+
+The standard’s own repository, home of the reference implementation.
+
+- Issue #3327 (Calendars): A recent change made non-Gregorian month counting wrong at ordinary dates, and throw near the range limits. https://github.com/tc39/proposal-temporal/issues/3327
+- Issue #3328 (Time zones): The time zone search bug before the maximum date, reported where the reference code lives, with the same fix. https://github.com/tc39/proposal-temporal/issues/3328
+- Issue #3329 (Calendars): An assertion assumed unreachable can be reached, in the Coptic and Ethiopian calendars’ short 13th month. https://github.com/tc39/proposal-temporal/issues/3329
+- Issue #3330 (Time zones): The 1844 date-line search bug, reported where the reference code lives, with the same fix. https://github.com/tc39/proposal-temporal/issues/3330
+
+Verified by:
+- Expected values from the spec text, test262 and Chrome’s native Temporal, never from the polyfill
+- Every patch run on a production build of the polyfill’s main branch, with and without the change
+- The 1844 fix checked across all 418 time zones: 1,672 rows against Chrome, 6,336 transition lookups byte-identical
+- The project’s own jest and test262 suites, reported on each pull request
+
+Not waiting on upstream:
+- A probe checks once whether the installed polyfill still has each bug; if not, the workaround never runs
+- A canary (pnpm compat) reports which workarounds a new polyfill release makes removable
+- 409,552 calendar comparisons against Chrome’s native Temporal, 0 mismatches
+
+## Agents
+
+I run agents as a pipeline, not a chat window. Each story gets its own git worktree from a CLI I wrote. A planner grills me on every open decision and writes a handoff, but no code. A driver builds from that handoff through role-specific subagents, including a test-first developer that writes the failing test before the code, then sends every story through three reviewers: QA, security and accessibility. A reviewer may prove a finding with a failing test but never fixes it. Agent behaviour is written once, in AGENTS.md and one manifest per agent, and every harness I use reads it through a thin stub: Claude Code, GitHub Copilot, and VS Code chat on local models.
+
+Git belongs to me. Builders and reviewers never commit. One finalizer runs every check, walks the definition of done and cuts commits a reviewer can read one at a time, and it asks me before every push. Releases publish from CI with npm trusted publishing and provenance, and only when I merge a release PR. Lint, typecheck, tests and build are the definition of done for me and for agents; CI runs them on every PR and fails when published numbers or the story tracker drift from source. Nothing ships that I haven’t read.
+
+### The crew
+
+- **planner** — Finds the gaps in a story and grills me in rounds, then writes the handoff. Starts in plan mode. Writes no code: only the handoff, and spec edits I approve.
+- **driver** — Runs a story from handoff to PR: tasks to builders, every story to three reviewers. Never re-plans, never writes app code, never commits.
+- **api-maker** — Builds from the database to the page: API, migrations, shared types, server code. Test first, and only the task and files the driver names.
+- **tdd-dev** — Builds pages and components: a failing test first, then the code. Never touches a database. If the route it needs doesn’t exist, it stops and reports.
+- **3d-animator** — Owns all motion: transitions, springs, view transitions, later 3D. Every motion gets a reduced-motion branch.
+- **qa-skeptic** — Assumes the work is broken and tries to break it against the spec. “The builder said the tests pass” is not proof; a command it ran and its output are. May write a failing test, never a fix.
+- **owasp-hacker** — Attacks each story as a signed-in member: access, CSRF, injection, tokens. Local dev servers only, never a deployed host or real credentials. Proves a hole with a failing test, never a fix.
+- **a11y-expert** — Checks every story against WCAG 2.2: keyboard, screen reader, zoom, motion. Reviews, never fixes. May write a failing axe or keyboard test.
+- **pr-finalizer** — Runs every check, cuts readable commits, and writes the PR. The only agent that commits, and it asks before every push.
+- **mentor** — Turns each finished story into a short lesson tied to its files. Checks every claim against the official docs. Never changes code.
+
+I keep skills in the repo like code. They’re validated against the Agent Skills schema, audited for token cost and trigger collisions by analyzers I wrote, and third-party skills are pinned by content hash in a lockfile.
+
+### Context is a budget
+
+Context is a budget. When I measured my token usage, 93% was spent in sessions that had grown past 150k tokens, and 58% was Playwright MCP output left sitting in context. I restructured around that: a model tier per workflow step, instructions loaded only when a step runs, and compacting after every gate.
+
+- **Sessions past 150k context** — 93% of tokens
+- **Playwright MCP output** — 58% of tokens
+
+I’m building an open-source AI toolkit around this, designed to stay coding-standards agnostic: a project points at its own standards repo when it initializes, so teams keep their conventions and still share one workflow. Agent behaviour lives in one provider-agnostic manifest and standards live in their own files, which is what makes that split possible.
+
+**Eight Anthropic certifications, July 2026:**
+
+- AI Fluency: Framework & Foundations
+- Model Context Protocol
+- Agent Skills
+- Subagents
+- Claude Code 101
+- Claude Code in Action
+- Claude Cowork
+- Claude 101
+
+## Languages
+
+Scale, low to high: Elementary → Intermediate → Full professional working → Native. Not crosswalked onto CEFR —
+ILR and CEFR have no official mapping.
+
+- **English** — Native (Native)
+- **Chinese** — Full professional working (DLPT5 3/3)
+- **Finnish** — Intermediate (B1)
+- **Swedish** — Elementary (A1)
+
+## Background
+
+- Mandarin Linguist, U.S. Department of Defense (2006–2009). Held TS/SCI clearance. DLPT5 3/3.
+- University of Minnesota, Twin Cities · B.A. Chinese, Anthropology, East Asian Studies & History · Summa Cum Laude, Phi Beta Kappa, Dean’s List · GPA 3.92
+- Nankai University / Yunnan Normal University · Advanced Chinese Certification
+
+## Certifications
+
+- University of Helsinki · Full Stack Open, 5 ECTS · Elements of AI · Introduction to Data Protection Law (in progress)
+- Microsoft · Career Essentials in Generative AI
+- AWS · Certified Developer Associate, DVA-C02 (in progress)
+
+## Community
+
+- Chairman (Puheenjohtaja), Suomen Paluumuuttajayhdistys ry (Finnish Remigration Association), 2025–present. Built and maintain the community's digital ecosystem; co-lead advocacy with Members of Parliament and national organizations.
+- Technical Instructor, Shanghai Jiao Tong University (2012–2016). Created the Intro to Web Development track and founded CoderDojoXL.
+- Mentoring, code review and coding standards on the product teams I've been part of.
+
+## Quality
+
+Performance, accessibility, best practices and SEO, measured on this page.
+
+- **Performance** — 100/100
+- **Accessibility** — 100/100
+- **Best practices** — 100/100
+- **SEO** — 100/100
+
+- **First Contentful Paint** — 0.2 s
+- **Largest Contentful Paint** — 0.2 s
+- **Total Blocking Time** — 0 ms
+- **Cumulative Layout Shift** — 0
+- **Speed Index** — 0.2 s
+
+Accessibility target: WCAG 2.2 AAA. I target the highest level across every project to make sure the broadest possible audience can use and navigate everything I build.
+
+- Semantic HTML and ARIA roles used throughout
+- Full keyboard navigation with visible focus indicators
+- Color contrast meets or exceeds WCAG 2.2 AAA standards
+- Skip links and landmark regions for screen reader users
+- Reduced motion preferences respected by default
+
+Agentic Browsing: 3/3 — AI agents can read and use it
+
+## Contact
+
+Frontend architecture, backend services, databases and payments. I work across the stack. Let’s talk.
+
+- [GitHub](https://github.com/craig-o-curtis)
+- [@northguild](https://github.com/northguild)
+- [LinkedIn](https://www.linkedin.com/in/craigocurtis/)
+- [StackOverflow](https://stackoverflow.com/users/6090533/curtybear)
+
+CV: https://craig-o-curtis.github.io/craig-curtis-cv.pdf (PDF, 2 pages)

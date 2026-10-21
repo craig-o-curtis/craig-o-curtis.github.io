@@ -1,0 +1,10 @@
+# © Craig Curtis. All rights reserved.
+# No part of this site may be used to train or fine-tune AI/ML models, or be
+# included in any training dataset. See LICENSE in the source repository.
+#
+# Search and answer services may read and cite the site in reply to a user's
+# query, through the user agents public/robots.txt allows. /llms.txt is the
+# site's own summary for them.
+
+User-Agent: *
+Disallow: /
