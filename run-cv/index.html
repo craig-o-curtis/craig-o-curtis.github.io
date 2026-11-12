@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>run-cv — terminal in your browser</title>
+    <link rel="icon" href="data:," />
+    <!-- Absolute paths: served under /run-cv/ on GitHub Pages, and some
+         static servers redirect index.html to the directory, which would break
+         relative URLs. -->
+    <link rel="stylesheet" href="/run-cv/terminal.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #050a06;
+        color: #b8ffc6;
+        font:
+          12px/1.4 Menlo,
+          "SF Mono",
+          SFMono-Regular,
+          Consolas,
+          "Liberation Mono",
+          monospace;
+      }
+
+      body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Minimal padding: every pixel of height is another chance at a bigger font. */
+      #terminal {
+        flex: 1;
+        min-height: 0;
+        padding: 2px 4px;
+      }
+
+      .bar {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.25rem 1rem;
+        margin: 0;
+        padding: 4px 10px;
+        border-top: 1px solid #173a22;
+      }
+
+      a {
+        color: #b8ffc6;
+      }
+
+      :focus-visible {
+        outline: 2px solid #ffe066;
+        outline-offset: 2px;
+      }
+
+      .ended {
+        position: absolute;
+        inset: 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        background: #050a06;
+      }
+
+      body[data-state="ended"] .ended {
+        display: flex;
+      }
+
+      .ended p {
+        margin: 0;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      button {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 0 1rem;
+        border: 1px solid #3a9a52;
+        border-radius: 6px;
+        background: #0c1a10;
+        color: #b8ffc6;
+        font: inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1
+        style="
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0);
+          white-space: nowrap;
+        "
+      >
+        run-cv, running in your browser
+      </h1>
+    </header>
+    <main
+      id="terminal"
+      aria-label="run-cv terminal. Arrow keys move, right arrow opens, left arrow or Escape goes back, q quits, Tab leaves the terminal."
+    ></main>
+
+    <div class="ended" role="status">
+      <p>Session ended</p>
+      <button id="restart" type="button">↻ Restart run-cv</button>
+    </div>
+
+    <footer class="bar">
+      <span>↑↓ move · → open · ← back · q quit · Tab leaves</span>
+      <span
+        >Runs entirely in your browser ·
+        <a href="/run-cv/THIRD_PARTY_LICENSES.txt" target="_blank" rel="noopener noreferrer"
+          >Licences</a
+        ></span
+      >
+    </footer>
+
+    <script type="module" src="/run-cv/terminal.js"></script>
+  </body>
+</html>
